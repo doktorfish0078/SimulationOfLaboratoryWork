@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="resistors">
+    <file>resistor.png</file>
+    <file>resistor_store.png</file>
+    <file>voltmeter.png</file>
+  </qresource>
+</RCC>
