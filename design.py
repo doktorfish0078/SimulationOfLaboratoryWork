@@ -9,13 +9,13 @@
 import sys
 from PyQt5 import QtWidgets
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
 
-class MainWindow(QMainWindow):
+class Laba11(QMainWindow):
     def __init__(self):
-        super(MainWindow, self).__init__()
-        uic.loadUi('design.ui', self)
+        super(Laba11, self).__init__()
+        uic.loadUi('laba11.ui', self)
 
         self.r1_value = 210
         self.r2_value = 405
@@ -42,18 +42,21 @@ class MainWindow(QMainWindow):
         value_resistors = 0
 
         if single or serial or parallel:
+            # пока так...
+            if (single and serial) or (serial and parallel) or (single and parallel):
+                QMessageBox.critical(self, "Нерабочая цепь", "Невозможно так соединить резисторы. Ку-ку?", QMessageBox.Ok)
 
-            if single:
+            elif single:
                 for resistor in resistors_used:
                     if resistor[0]:
                         value_resistors = resistor[1]
 
-            if serial:
+            elif serial:
                 for resistor in resistors_used:
                     if resistor[0]:
                         value_resistors += resistor[1]
 
-            if parallel:
+            elif parallel:
                 resists = {}
                 for resistor in resistors_used:
                     if resistor[0]:
@@ -107,6 +110,7 @@ class Laba15(QMainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = Laba15()
+    window = Laba11()
+    # window = Laba15()
     window.show()
     app.exec_()
