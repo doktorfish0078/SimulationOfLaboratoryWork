@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>997</width>
-    <height>711</height>
+    <width>1007</width>
+    <height>770</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,38 +17,6 @@
    <string notr="true">background-color: rgb(74, 118, 168);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QCheckBox" name="checkPower">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>110</y>
-      <width>71</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Вкл/выкл</string>
-    </property>
-   </widget>
-   <widget class="QSlider" name="slider_voltage">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>80</y>
-      <width>160</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="maximum">
-     <number>54</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-    <property name="tickPosition">
-     <enum>QSlider::NoTicks</enum>
-    </property>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
@@ -193,11 +161,14 @@ background-color: rgb(0, 0, 0);</string>
      <rect>
       <x>680</x>
       <y>380</y>
-      <width>201</width>
-      <height>280</height>
+      <width>222</width>
+      <height>311</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_5">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
      <item>
       <widget class="QLabel" name="label_4">
        <property name="sizePolicy">
@@ -208,9 +179,12 @@ background-color: rgb(0, 0, 0);</string>
        </property>
        <property name="maximumSize">
         <size>
-         <width>199</width>
-         <height>220</height>
+         <width>220</width>
+         <height>240</height>
         </size>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
        </property>
        <property name="text">
         <string/>
@@ -290,7 +264,7 @@ background-color: rgb(0, 0, 0);</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="images/images.qrc">:/resistors/resistor.png</pixmap>
+        <pixmap>images/resistor.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -366,10 +340,10 @@ background-color: rgb(0, 0, 0);</string>
 background-color: rgb(0, 0, 0);</string>
     </property>
     <property name="frameShape">
-     <enum>QFrame::Box</enum>
+     <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
+     <enum>QFrame::Sunken</enum>
     </property>
     <property name="smallDecimalPoint">
      <bool>false</bool>
@@ -379,9 +353,6 @@ background-color: rgb(0, 0, 0);</string>
     </property>
     <property name="segmentStyle">
      <enum>QLCDNumber::Flat</enum>
-    </property>
-    <property name="value" stdset="0">
-     <double>0.000000000000000</double>
     </property>
     <property name="intValue" stdset="0">
      <number>0</number>
@@ -432,19 +403,92 @@ background-color: rgb(0, 0, 0);</string>
      <string>Предел 100</string>
     </property>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_5">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>90</y>
+      <width>180</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QSlider" name="slider_voltage">
+       <property name="maximum">
+        <number>54</number>
+       </property>
+       <property name="sliderPosition">
+        <number>0</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="invertedAppearance">
+        <bool>false</bool>
+       </property>
+       <property name="invertedControls">
+        <bool>false</bool>
+       </property>
+       <property name="tickPosition">
+        <enum>QSlider::TicksBelow</enum>
+       </property>
+       <property name="tickInterval">
+        <number>5</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_10">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Регулятор напряжения</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkPower">
+       <property name="text">
+        <string>Вкл/выкл</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>997</width>
+     <width>1007</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>checkPower</tabstop>
+  <tabstop>slider_voltage</tabstop>
+  <tabstop>measure_c_button</tabstop>
+  <tabstop>measure_3_button</tabstop>
+  <tabstop>measure_r_button</tabstop>
+  <tabstop>checkBox_2</tabstop>
+ </tabstops>
  <resources>
   <include location="images/images.qrc"/>
  </resources>

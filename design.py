@@ -78,7 +78,10 @@ class Laba15(QMainWindow):
         self.resistance_c = 40
         self.resistance_r = 30
         self.resistance_kat = 54
+
         self.measure_c_button.clicked.connect(self.measure_c)
+        self.measure_3_button.clicked.connect(self.measure_3)
+        self.measure_r_button.clicked.connect(self.measure_r)
         self.checkPower.clicked.connect(self.work)
 
     def work(self):
@@ -91,8 +94,16 @@ class Laba15(QMainWindow):
 
 
     def measure_c(self):
-        a = float('{:.3f}'.format(self.ammeter.value()))
-        self.voltmeter.display("{:.1f}".format(a * self.resistance_c))
+        ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
+        self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_c))
+
+    def measure_3(self):
+        ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
+        self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_kat))
+
+    def measure_r(self):
+        ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
+        self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_r))
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
