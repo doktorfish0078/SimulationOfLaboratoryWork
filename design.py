@@ -57,10 +57,10 @@ class Laba11(QMainWindow):
                         value_resistors += resistor[1]
 
             elif parallel:
-                resists = {}
+                resists = []
                 for resistor in resistors_used:
                     if resistor[0]:
-                        resists.add(resistor[1])
+                        resists.append(resistor[1])
                 value_resistors = (resists[0] * resists[1]) / (resists[0] + resists[1])
 
         self.voltmeter.setText(str(resistence_store / 4 - value_resistors))
