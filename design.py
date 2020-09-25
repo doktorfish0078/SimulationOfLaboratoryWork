@@ -85,16 +85,17 @@ class Laba15(QMainWindow):
         self.measure_c_button.clicked.connect(self.measure_c)
         self.measure_3_button.clicked.connect(self.measure_3)
         self.measure_r_button.clicked.connect(self.measure_r)
-        self.checkPower.clicked.connect(self.work)
+        # всё так же как с кнопками и проч.
+        # Коннектом можно даже соединять один объект с другим, типо два ползунка синхорнно ползут
+        self.slider_voltage.valueChanged.connect(self.work)
+
 
     def work(self):
-        if self.checkPower.isChecked():
-            self.voltage_regulator = self.slider_voltage.value()
-            print(self.voltage_regulator)
+        # if self.checkPower.isChecked():
+        self.voltage_regulator = self.slider_voltage.value()
+        print(self.voltage_regulator)
 
-            self.ammeter.display(self.voltage_regulator/self.total_resistance)
-
-
+        self.ammeter.display(self.voltage_regulator/self.total_resistance)
 
     def measure_c(self):
         ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
@@ -110,7 +111,7 @@ class Laba15(QMainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = Laba11()
-    # window = Laba15()
+    # window = Laba11()
+    window = Laba15()
     window.show()
     app.exec_()
