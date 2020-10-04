@@ -39,8 +39,8 @@ class Laba11(QMainWindow):
                            self.dial_5.value() * 1 + self.dial_6.value() * 0.1
 
         self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(self.resistence_on_store))
-        # print(QtWidgets.QDial.setValue())
-
+        self.browse_folder()
+    
     def browse_folder(self):
         single = self.single.isChecked()
         parallel = self.parallel.isChecked()
@@ -135,7 +135,8 @@ class Laba15(QMainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    # window = Laba11()
-    window = Laba15()
+    window = Laba11()
+    #window = Laba15()
     window.show()
     app.exec_()
+    input()
