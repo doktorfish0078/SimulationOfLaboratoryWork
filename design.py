@@ -23,6 +23,7 @@ class Laba11(QMainWindow):
         self.resistence_on_store = 0
 
         # welcome to GavnoCode Empire, baby
+
         self.dial_1.valueChanged.connect(self.change_resistors_store_value)
         self.dial_2.valueChanged.connect(self.change_resistors_store_value)
         self.dial_3.valueChanged.connect(self.change_resistors_store_value)
@@ -30,7 +31,6 @@ class Laba11(QMainWindow):
         self.dial_5.valueChanged.connect(self.change_resistors_store_value)
         self.dial_6.valueChanged.connect(self.change_resistors_store_value)
 
-        self.mainbotton.clicked.connect(self.browse_folder)
         self.resetButton.clicked.connect(self.reset)
 
     def change_resistors_store_value(self):
@@ -39,8 +39,9 @@ class Laba11(QMainWindow):
                            self.dial_5.value() * 1 + self.dial_6.value() * 0.1
 
         self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(self.resistence_on_store))
-        self.browse_folder()
-    
+        if self.PowerCheck.isChecked():
+            self.browse_folder()
+
     def browse_folder(self):
         single = self.single.isChecked()
         parallel = self.parallel.isChecked()
