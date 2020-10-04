@@ -9,7 +9,7 @@
 import sys
 from PyQt5 import QtWidgets
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QMessageBox, QStyleFactory
 
 
 class Laba11(QMainWindow):
@@ -20,6 +20,7 @@ class Laba11(QMainWindow):
         self.r1_value = 210
         self.r2_value = 405
         self.r3_value = 625
+        self.resistence_on_store = 0
 
         # welcome to GavnoCode Empire, baby
         self.dial_1.valueChanged.connect(self.change_resistors_store_value)
@@ -33,11 +34,11 @@ class Laba11(QMainWindow):
         self.resetButton.clicked.connect(self.reset)
 
     def change_resistors_store_value(self):
-        resistence_store = self.dial_1.value() * 10000 + self.dial_2.value() * 1000 + \
+        self.resistence_on_store = self.dial_1.value() * 10000 + self.dial_2.value() * 1000 + \
                            self.dial_3.value() * 100 + self.dial_4.value() * 10 + \
                            self.dial_5.value() * 1 + self.dial_6.value() * 0.1
 
-        self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(resistence_store))
+        self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(self.resistence_on_store))
         # print(QtWidgets.QDial.setValue())
 
     def browse_folder(self):
@@ -74,7 +75,7 @@ class Laba11(QMainWindow):
                         resists.append(resistor[1])
                 value_resistors = (resists[0] * resists[1]) / (resists[0] + resists[1])
 
-        self.voltmeter.setText(str(resistence_store / 4 - value_resistors))
+        self.voltmeter.setText(str(self.resistence_on_store / 4 - value_resistors))
 
     def reset(self):
         for dial in {self.dial_1, self.dial_2, self.dial_3,
@@ -93,6 +94,9 @@ class Laba15(QMainWindow):
         self.resistance_r = 30
         self.resistance_kat = 54
 
+        self.dial.setStyle(QStyleFactory.create('Windows'))
+        # print(QStyleFactory.keys())
+
         self.measure_c_button.clicked.connect(self.measure_c)
         self.measure_3_button.clicked.connect(self.measure_3)
         self.measure_r_button.clicked.connect(self.measure_r)
@@ -100,9 +104,18 @@ class Laba15(QMainWindow):
         # Коннектом можно даже соединять один объект с другим, типо два ползунка синхорнно ползут
         self.slider_voltage.valueChanged.connect(self.work)
 
+        self.dial.sliderMoved.connect(self.zero_point)
+        self.dial.sliderPressed.connect(self.zero_point)
+        self.dial.sliderReleased.connect(self.zero_point)
+
+
+    def zero_point(self):
+        self.dial.setValue(self.voltage_regulator)
+
     def work(self):
         # if self.checkPower.isChecked():
         self.voltage_regulator = self.slider_voltage.value()
+        self.dial.setValue(self.voltage_regulator)
         print(self.voltage_regulator)
 
         self.ammeter.display(self.voltage_regulator / self.total_resistance)
@@ -122,7 +135,7 @@ class Laba15(QMainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = Laba11()
-    # window = Laba15()
+    # window = Laba11()
+    window = Laba15()
     window.show()
     app.exec_()
