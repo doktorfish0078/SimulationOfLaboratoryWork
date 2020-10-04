@@ -20,10 +20,19 @@ class Laba11(QMainWindow):
         self.r1_value = 210
         self.r2_value = 405
         self.r3_value = 625
+
+        # welcome to GavnoCode Empire, baby
+        self.dial_1.valueChanged.connect(self.change_resistors_store_value)
+        self.dial_2.valueChanged.connect(self.change_resistors_store_value)
+        self.dial_3.valueChanged.connect(self.change_resistors_store_value)
+        self.dial_4.valueChanged.connect(self.change_resistors_store_value)
+        self.dial_5.valueChanged.connect(self.change_resistors_store_value)
+        self.dial_6.valueChanged.connect(self.change_resistors_store_value)
+
         self.mainbotton.clicked.connect(self.browse_folder)
         self.resetButton.clicked.connect(self.reset)
 
-    def browse_folder(self):
+    def change_resistors_store_value(self):
         resistence_store = self.dial_1.value() * 10000 + self.dial_2.value() * 1000 + \
                            self.dial_3.value() * 100 + self.dial_4.value() * 10 + \
                            self.dial_5.value() * 1 + self.dial_6.value() * 0.1
@@ -31,6 +40,7 @@ class Laba11(QMainWindow):
         self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(resistence_store))
         # print(QtWidgets.QDial.setValue())
 
+    def browse_folder(self):
         single = self.single.isChecked()
         parallel = self.parallel.isChecked()
         serial = self.serial.isChecked()
@@ -44,7 +54,8 @@ class Laba11(QMainWindow):
         if single or serial or parallel:
             # пока так...
             if (single and serial) or (serial and parallel) or (single and parallel):
-                QMessageBox.critical(self, "Нерабочая цепь", "Невозможно так соединить резисторы. Ку-ку?", QMessageBox.Ok)
+                QMessageBox.critical(self, "Нерабочая цепь", "Невозможно так соединить резисторы. Ку-ку?",
+                                     QMessageBox.Ok)
 
             elif single:
                 for resistor in resistors_used:
@@ -89,13 +100,12 @@ class Laba15(QMainWindow):
         # Коннектом можно даже соединять один объект с другим, типо два ползунка синхорнно ползут
         self.slider_voltage.valueChanged.connect(self.work)
 
-
     def work(self):
         # if self.checkPower.isChecked():
         self.voltage_regulator = self.slider_voltage.value()
         print(self.voltage_regulator)
 
-        self.ammeter.display(self.voltage_regulator/self.total_resistance)
+        self.ammeter.display(self.voltage_regulator / self.total_resistance)
 
     def measure_c(self):
         ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
@@ -109,9 +119,9 @@ class Laba15(QMainWindow):
         ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
         self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_r))
 
+
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    # window = Laba11()
-    window = Laba15()
+    # window = Laba15()
     window.show()
     app.exec_()
