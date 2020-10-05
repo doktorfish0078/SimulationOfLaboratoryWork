@@ -95,6 +95,8 @@ class Laba15(QMainWindow):
         self.resistance_r = 30
         self.resistance_kat = 54
 
+        self.voltmeter.display(None)
+
         self.dial.setStyle(QStyleFactory.create('Windows'))
         # print(QStyleFactory.keys())
 
@@ -105,6 +107,8 @@ class Laba15(QMainWindow):
         # Коннектом можно даже соединять один объект с другим, типо два ползунка синхорнно ползут
         self.slider_voltage.valueChanged.connect(self.work)
 
+        self.NetCheck.clicked.connect(self.zero_point_voltmeter)
+
         self.dial.sliderMoved.connect(self.zero_point)
         self.dial.sliderPressed.connect(self.zero_point)
         self.dial.sliderReleased.connect(self.zero_point)
@@ -112,6 +116,10 @@ class Laba15(QMainWindow):
 
     def zero_point(self):
         self.dial.setValue(self.voltage_regulator)
+
+    def zero_point_voltmeter(self):
+        if not self.NetCheck.isChecked():
+            self.voltmeter.display(None)
 
     def work(self):
         # if self.checkPower.isChecked():
@@ -122,22 +130,31 @@ class Laba15(QMainWindow):
         self.ammeter.display(self.voltage_regulator / self.total_resistance)
 
     def measure_c(self):
-        ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
-        self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_c))
+        if self.NetCheck.isChecked():
+            ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
+            self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_c))
+        else:
+            self.voltmeter.display(None)
 
     def measure_3(self):
-        ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
-        self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_kat))
+        if self.NetCheck.isChecked():
+            ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
+            self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_kat))
+        else:
+            self.voltmeter.display(None)
 
     def measure_r(self):
-        ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
-        self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_r))
+        if self.NetCheck.isChecked():
+            ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
+            self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_r))
+        else:
+            self.voltmeter.display(None)
 
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = Laba11()
-    #window = Laba15()
+    # window = Laba11()
+    window = Laba15()
     window.show()
     app.exec_()
     input()
