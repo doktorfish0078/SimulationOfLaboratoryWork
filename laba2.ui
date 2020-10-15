@@ -13,21 +13,27 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(167, 255, 207);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>50</x>
       <y>50</y>
-      <width>405</width>
-      <height>71</height>
+      <width>501</width>
+      <height>68</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QSlider" name="Reostat">
        <property name="maximum">
-        <number>24</number>
+        <number>240</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
        </property>
        <property name="sliderPosition">
         <number>0</number>
@@ -233,6 +239,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;Comic Sans MS&quot;;</string>
+       </property>
        <property name="text">
         <string>Реостат</string>
        </property>
@@ -246,8 +255,8 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>370</y>
+      <x>690</x>
+      <y>280</y>
       <width>131</width>
       <height>91</height>
      </rect>
@@ -256,7 +265,7 @@
      <item>
       <widget class="QLabel" name="label_key">
        <property name="text">
-        <string>asd</string>
+        <string/>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -268,8 +277,80 @@
        <property name="maximum">
         <number>2</number>
        </property>
+       <property name="value">
+        <number>1</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>340</y>
+      <width>121</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <widget class="QLCDNumber" name="galvanometer">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(233, 0, 0);
+background-color: rgb(6, 6, 6);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <property name="mode">
+        <enum>QLCDNumber::Dec</enum>
+       </property>
+       <property name="segmentStyle">
+        <enum>QLCDNumber::Flat</enum>
+       </property>
+       <property name="value" stdset="0">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="intValue" stdset="0">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_27">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;Comic Sans MS&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Гальванометр</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
