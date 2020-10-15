@@ -128,8 +128,8 @@
      <rect>
       <x>90</x>
       <y>360</y>
-      <width>340</width>
-      <height>94</height>
+      <width>336</width>
+      <height>92</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -403,7 +403,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="wrapping">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="notchTarget">
      <double>10.000000000000000</double>
@@ -551,7 +551,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="wrapping">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="notchTarget">
      <double>10.000000000000000</double>
@@ -680,7 +680,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="wrapping">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="notchTarget">
      <double>10.000000000000000</double>
@@ -809,7 +809,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="wrapping">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="notchTarget">
      <double>10.000000000000000</double>
@@ -938,7 +938,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="wrapping">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="notchTarget">
      <double>10.000000000000000</double>
@@ -1067,7 +1067,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="wrapping">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="notchTarget">
      <double>10.000000000000000</double>
@@ -1128,6 +1128,29 @@ background-color: rgb(28, 30, 29);</string>
      <string>Замкнуть</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="info">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>10</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>images/info.jpg</normaloff>images/info.jpg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
    <zorder>label_13</zorder>
    <zorder>horizontalLayoutWidget</zorder>
    <zorder>verticalLayoutWidget_2</zorder>
@@ -1143,6 +1166,7 @@ background-color: rgb(28, 30, 29);</string>
    <zorder>resistors_store</zorder>
    <zorder>resetButton</zorder>
    <zorder>PowerCheck</zorder>
+   <zorder>info</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -1150,7 +1174,7 @@ background-color: rgb(28, 30, 29);</string>
      <x>0</x>
      <y>0</y>
      <width>979</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

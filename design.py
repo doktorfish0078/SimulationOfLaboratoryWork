@@ -153,8 +153,8 @@ class Laba15(QMainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    # window = Laba11()
-    window = Laba15()
+    window = Laba11()
+    #window = Laba15()
     window.show()
     app.exec_()
     input()
