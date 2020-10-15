@@ -12,6 +12,17 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QMessageBox, QStyleFactory
 
 
+class TestLaba(QMainWindow):
+    def __init__(self):
+        super(TestLaba, self).__init__()
+        uic.loadUi('TEST.ui', self)
+
+        self.horizontal_slider.valueChanged.connect(self.uuuh)
+
+    def uuuh(self):
+        self.label.text = self.line.geometry
+
+
 class Laba11(QMainWindow):
     def __init__(self):
         super(Laba11, self).__init__()
@@ -153,8 +164,9 @@ class Laba15(QMainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = Laba11()
+    #window = Laba11()
     #window = Laba15()
+    window = TestLaba()
     window.show()
     app.exec_()
     input()
