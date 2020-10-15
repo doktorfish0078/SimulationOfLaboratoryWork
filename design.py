@@ -20,8 +20,7 @@ class TestLaba(QMainWindow):
         self.horizontalSlider.valueChanged.connect(self.uuuh)
 
     def uuuh(self):
-        self.line.move(100+self.horizontalSlider.value(), 200)
-
+        self.line.move(100 + self.horizontalSlider.value(), 200)
 
 
 class Laba11(QMainWindow):
