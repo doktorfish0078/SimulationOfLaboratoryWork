@@ -16,19 +16,37 @@ class Laba2(QMainWindow):
     def __init__(self):
         super(Laba2, self).__init__()
         uic.loadUi('laba2.ui', self)
+
+        self.galvanometer.display(None)
+
         self.left_pos_key = QtGui.QPixmap("C:\\Users\\Roman\\Desktop\\лево.png")
         self.right_pos_key = QtGui.QPixmap("C:\\Users\\Roman\\Desktop\\право.png")
         self.key_slider.valueChanged.connect(self.change_picture_key)
-
+        self.Reostat.valueChanged.connect(self.change_value_galvanometer)
 
     def change_picture_key(self):
-        print(self.key_slider.value())
         if self.key_slider.value() == 0:
             self.label_key.setPixmap(self.left_pos_key)
         elif self.key_slider.value() == 2:
             self.label_key.setPixmap(self.right_pos_key)
+        self.change_value_galvanometer()
 
+    def change_value_galvanometer(self):
+        value_reostat = self.Reostat.value() / 10 # значение реостата в сантиметрах,от 0 до 24 см с шагом в 0.1 см
+        if self.key_slider.value() == 0:  # левая позиция ключа
+            if value_reostat < 14.5:
+                self.galvanometer.display(-(14.5 / 0.152 - value_reostat / 0.152))
+            else:
+                self.galvanometer.display(value_reostat / 0.152 - 14.5 / 0.152)
 
+        elif self.key_slider.value() == 1:  # центральная позиция ключа(разомкнут)
+            self.galvanometer.display(None)
+
+        elif self.key_slider.value() == 2:  # правая позиция ключа
+            if value_reostat < 21.5:
+                self.galvanometer.display(-(21.5 / 0.165 - value_reostat / 0.165))
+            else:
+                self.galvanometer.display(value_reostat / 0.165 - 21.5 / 0.165)
 
 
 if __name__ == '__main__':
