@@ -17,10 +17,11 @@ class TestLaba(QMainWindow):
         super(TestLaba, self).__init__()
         uic.loadUi('TEST.ui', self)
 
-        self.horizontal_slider.valueChanged.connect(self.uuuh)
+        self.horizontalSlider.valueChanged.connect(self.uuuh)
 
     def uuuh(self):
-        self.label.text = self.line.geometry
+        self.line.move(100+self.horizontalSlider.value(), 200)
+
 
 
 class Laba11(QMainWindow):
@@ -164,9 +165,9 @@ class Laba15(QMainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    #window = Laba11()
-    #window = Laba15()
-    window = TestLaba()
+    # window = Laba11()
+    window = Laba15()
+    # window = TestLaba()
     window.show()
     app.exec_()
     input()
