@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="resistors">
+    <file>8d_3xmPmnXo.jpg</file>
     <file>resistor.png</file>
     <file>resistor_store.png</file>
     <file>voltmeter.png</file>
