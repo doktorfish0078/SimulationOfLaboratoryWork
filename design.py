@@ -31,19 +31,25 @@ class Laba14(QMainWindow):
     def set_induction(self):
         # constants
         sl = 10 ** (-2) * self.shtok.value()
-        self.shtokValue.move(470 + self.shtok.value() * 4.2, 460)
-        self.shtokValue.setText(str(self.shtok.value()))
+        self.shtokValue.move(480 + self.shtok.value() * 4.2, 460)
+        self.shtokValue.setText(str(47 - self.shtok.value()))
+        self.shtokRealValue.move(480 + self.shtok.value() * 4.2, 580)
+        self.shtokRealValue.setText(str(self.shtok.value()))
+        if sl < 0:
+            self.mainOut.setText('0.0')
+            return
         mu = 10 ** (-7) * 12.57
         n = 2000
-        # shtok len
+        # shtok len:
         len = 0.38
         r = 0.0125
+        # это пока нужно для того, чтобы заного не писать):
         # print(sl, '{:f}'.format(mu), n, self.amperage, len, r)
         # print("%.15f" % (mu * self.amperage * n / 2))
         # print("%.15f" % ((len - sl) / sqrt(r ** 2 + (len - sl) ** 2)))
         # print("%.15f" % (sl / sqrt(r ** 2 + sl ** 2)))
         self.mainOut.setText("%.15f" % (1000 * (mu * self.amperage * n / 2) *
-                                        ((len - sl) / sqrt(r ** 2 + (len - sl) ** 2) + sl / sqrt(r ** 2 + sl ** 2))))
+                                           ((len - sl) / sqrt(r ** 2 + (len - sl) ** 2) + sl / sqrt(r ** 2 + sl ** 2))))
 
 
 class Laba11(QMainWindow):
