@@ -10,17 +10,40 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QMessageBox, QStyleFactory
+from math import sqrt
 
 
-class TestLaba(QMainWindow):
+class Laba14(QMainWindow):
+    amperage = 0.0
+
     def __init__(self):
-        super(TestLaba, self).__init__()
-        uic.loadUi('TEST.ui', self)
+        super(Laba14, self).__init__()
+        uic.loadUi('laba14.ui', self)
+        self.amperDial.valueChanged.connect(self.set_amperage)
+        self.amperDial.valueChanged.connect(self.set_induction)
+        self.shtok.valueChanged.connect(self.set_induction)
 
-        self.horizontalSlider.valueChanged.connect(self.uuuh)
+    def set_amperage(self):
+        # print(float(self.amperDial.value())/10)
+        self.amperage = self.amperDial.value() / 10
+        self.amperOut.setText(str(self.amperage))
 
-    def uuuh(self):
-        self.line.move(100 + self.horizontalSlider.value(), 200)
+    def set_induction(self):
+        # constants
+        sl = 10 ** (-2) * self.shtok.value()
+        self.shtokValue.move(470 + self.shtok.value() * 4.2, 460)
+        self.shtokValue.setText(str(self.shtok.value()))
+        mu = 10 ** (-7) * 12.57
+        n = 2000
+        # shtok len
+        len = 0.38
+        r = 0.0125
+        # print(sl, '{:f}'.format(mu), n, self.amperage, len, r)
+        # print("%.15f" % (mu * self.amperage * n / 2))
+        # print("%.15f" % ((len - sl) / sqrt(r ** 2 + (len - sl) ** 2)))
+        # print("%.15f" % (sl / sqrt(r ** 2 + sl ** 2)))
+        self.mainOut.setText("%.15f" % (1000 * (mu * self.amperage * n / 2) *
+                                        ((len - sl) / sqrt(r ** 2 + (len - sl) ** 2) + sl / sqrt(r ** 2 + sl ** 2))))
 
 
 class Laba11(QMainWindow):
@@ -46,8 +69,8 @@ class Laba11(QMainWindow):
 
     def change_resistors_store_value(self):
         self.resistence_on_store = self.dial_1.value() * 10000 + self.dial_2.value() * 1000 + \
-                           self.dial_3.value() * 100 + self.dial_4.value() * 10 + \
-                           self.dial_5.value() * 1 + self.dial_6.value() * 0.1
+                                   self.dial_3.value() * 100 + self.dial_4.value() * 10 + \
+                                   self.dial_5.value() * 1 + self.dial_6.value() * 0.1
 
         self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(self.resistence_on_store))
         if self.PowerCheck.isChecked():
@@ -124,7 +147,6 @@ class Laba15(QMainWindow):
         self.dial.sliderPressed.connect(self.zero_point)
         self.dial.sliderReleased.connect(self.zero_point)
 
-
     def zero_point(self):
         self.dial.setValue(self.voltage_regulator)
 
@@ -166,7 +188,7 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     # window = Laba11()
     # window = Laba15()
-    window = TestLaba()
+    window = Laba14()
     window.show()
     app.exec_()
     input()
