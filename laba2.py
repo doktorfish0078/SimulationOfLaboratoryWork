@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'F:\Projects\SimulationOfLaboratoryWork\laba2.ui'
+# Form implementation generated from reading ui file 'laba2.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.1
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Laba2(object):
     def setupUi(self, Laba2):
         Laba2.setObjectName("Laba2")
-        Laba2.resize(944, 758)
+        Laba2.resize(987, 758)
         Laba2.setStyleSheet("background-color: rgb(167, 255, 207);")
         self.centralwidget = QtWidgets.QWidget(Laba2)
         self.centralwidget.setObjectName("centralwidget")
@@ -199,25 +199,25 @@ class Ui_Laba2(object):
         self.label_battery1 = QtWidgets.QLabel(self.centralwidget)
         self.label_battery1.setGeometry(QtCore.QRect(670, 130, 71, 121))
         self.label_battery1.setText("")
-        self.label_battery1.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\images/Battery1.png"))
+        self.label_battery1.setPixmap(QtGui.QPixmap("images/Battery1.png"))
         self.label_battery1.setScaledContents(True)
         self.label_battery1.setObjectName("label_battery1")
         self.label_battery2 = QtWidgets.QLabel(self.centralwidget)
         self.label_battery2.setGeometry(QtCore.QRect(750, 120, 71, 121))
         self.label_battery2.setText("")
-        self.label_battery2.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\images/Battery2.png"))
+        self.label_battery2.setPixmap(QtGui.QPixmap("images/Battery2.png"))
         self.label_battery2.setScaledContents(True)
         self.label_battery2.setObjectName("label_battery2")
         self.slot_battery2 = QtWidgets.QLabel(self.centralwidget)
         self.slot_battery2.setGeometry(QtCore.QRect(820, 500, 81, 131))
         self.slot_battery2.setText("")
-        self.slot_battery2.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\images/slot_battery.png"))
+        self.slot_battery2.setPixmap(QtGui.QPixmap("images/slot_battery.png"))
         self.slot_battery2.setScaledContents(True)
         self.slot_battery2.setObjectName("slot_battery2")
         self.slot_battery1 = QtWidgets.QLabel(self.centralwidget)
         self.slot_battery1.setGeometry(QtCore.QRect(820, 250, 81, 131))
         self.slot_battery1.setText("")
-        self.slot_battery1.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\images/slot_battery.png"))
+        self.slot_battery1.setPixmap(QtGui.QPixmap("images/slot_battery.png"))
         self.slot_battery1.setScaledContents(True)
         self.slot_battery1.setObjectName("slot_battery1")
         self.label_28 = QtWidgets.QLabel(self.centralwidget)
@@ -240,7 +240,7 @@ class Ui_Laba2(object):
         self.check_battery2.setObjectName("check_battery2")
         Laba2.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Laba2)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 944, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 987, 21))
         self.menubar.setObjectName("menubar")
         Laba2.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(Laba2)
