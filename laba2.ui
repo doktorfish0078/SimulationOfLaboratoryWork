@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>948</width>
-    <height>759</height>
+    <width>987</width>
+    <height>758</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,10 +20,10 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>50</y>
-      <width>501</width>
-      <height>71</height>
+      <x>0</x>
+      <y>30</y>
+      <width>941</width>
+      <height>78</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -48,12 +48,18 @@
         <enum>QSlider::TicksBelow</enum>
        </property>
        <property name="tickInterval">
-        <number>0</number>
+        <number>10</number>
        </property>
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>4</number>
+       </property>
        <item>
         <widget class="QLabel" name="label_6">
          <property name="text">
@@ -255,13 +261,16 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>280</y>
+      <x>430</x>
+      <y>360</y>
       <width>131</width>
       <height>91</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="spacing">
+      <number>0</number>
+     </property>
      <item>
       <widget class="QLabel" name="label_key">
        <property name="text">
@@ -290,9 +299,9 @@
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>340</y>
-      <width>121</width>
+      <x>420</x>
+      <y>610</y>
+      <width>131</width>
       <height>91</height>
      </rect>
     </property>
@@ -356,30 +365,150 @@ background-color: rgb(6, 6, 6);</string>
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="ChainiC_S_funcieu_jopa">
+   <widget class="QLabel" name="label_battery1">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>490</y>
-      <width>47</width>
-      <height>13</height>
+      <x>670</x>
+      <y>130</y>
+      <width>71</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/Battery1.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_battery2">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>120</y>
+      <width>71</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/Battery2.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="slot_battery2">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>500</y>
+      <width>81</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/slot_battery.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="slot_battery1">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>250</y>
+      <width>81</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/slot_battery.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_28">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>560</y>
-      <width>47</width>
-      <height>13</height>
+      <x>740</x>
+      <y>290</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 14pt &quot;Comic Sans MS&quot;;</string>
+    </property>
+    <property name="text">
+     <string>GBx1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_29">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>540</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 14pt &quot;Comic Sans MS&quot;;</string>
+    </property>
+    <property name="text">
+     <string>GBx2</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="check_battery1">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>330</y>
+      <width>131</width>
+      <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Вставить батарейку</string>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="check_battery2">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>580</y>
+      <width>131</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Вставить батарейку</string>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
@@ -388,7 +517,7 @@ background-color: rgb(6, 6, 6);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>948</width>
+     <width>987</width>
      <height>21</height>
     </rect>
    </property>
