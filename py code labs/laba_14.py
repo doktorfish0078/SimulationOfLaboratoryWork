@@ -2,6 +2,7 @@ import sys
 from math import sqrt
 
 from PyQt5 import QtWidgets
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QMainWindow
 
 from converted_forms_to_py import laba14
@@ -14,9 +15,15 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         super().__init__()
         self.setupUi(self)
 
+        # set pixmaps
+        self.label_instrumentation.setPixmap(QPixmap("..\\images\\laba_14\\pribori.png"))
+        self.label_stock.setPixmap(QPixmap("..\\images\\laba_14\\stock.png"))
+        self.label_solenoid.setPixmap(QPixmap("..\\images\\laba_14\\solenoid.png"))
+
+        #connects
         self.amperDial.valueChanged.connect(self.set_amperage)
         self.amperDial.valueChanged.connect(self.set_induction)
-        self.shtok.valueChanged.connect(self.set_induction)
+        self.slider_stock.valueChanged.connect(self.set_induction)
 
     def set_amperage(self):
         # print(float(self.amperDial.value())/10)
@@ -25,11 +32,17 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
 
     def set_induction(self):
         # constants
-        sl = 10 ** (-2) * self.shtok.value()
-        self.shtokValue.move(480 + self.shtok.value() * 4.2, 460)
-        self.shtokValue.setText(str(47 - self.shtok.value()))
-        self.shtokRealValue.move(480 + self.shtok.value() * 4.2, 580)
-        self.shtokRealValue.setText(str(self.shtok.value()))
+        sl = 10 ** (-2) * self.slider_stock.value()
+        self.shtokValue.move(480 + self.slider_stock.value() * 4.2, 460)
+        self.shtokValue.setText(str(47 - self.slider_stock.value()))
+
+        self.shtokRealValue.move(480 + self.slider_stock.value() * 4.2, 580)
+        self.shtokRealValue.setText(str(self.slider_stock.value()))
+
+        self.label_stock.move(
+            90 + self.slider_stock.value() * 9.6,
+            self.label_stock.geometry().getCoords()[1])
+
         if sl < 0:
             self.mainOut.setText('0.0')
             return

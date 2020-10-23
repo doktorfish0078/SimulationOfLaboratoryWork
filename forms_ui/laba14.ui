@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>670</height>
+    <width>1136</width>
+    <height>706</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,26 +17,13 @@
    <enum>Qt::LeftToRight</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="Line" name="line">
+   <widget class="QSlider" name="slider_stock">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>0</y>
-      <width>51</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QSlider" name="shtok">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>500</y>
+      <x>590</x>
+      <y>620</y>
       <width>221</width>
-      <height>61</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="minimum">
@@ -55,8 +42,8 @@
    <widget class="QLineEdit" name="mainOut">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>95</y>
+      <x>720</x>
+      <y>220</y>
       <width>321</width>
       <height>81</height>
      </rect>
@@ -73,8 +60,8 @@
    <widget class="QDial" name="amperDial">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>280</y>
+      <x>860</x>
+      <y>10</y>
       <width>151</width>
       <height>101</height>
      </rect>
@@ -86,30 +73,11 @@
      <number>1</number>
     </property>
    </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>90</y>
-      <width>311</width>
-      <height>291</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>images/ampermeter.jpg</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>35</y>
+      <x>720</x>
+      <y>10</y>
       <width>181</width>
       <height>41</height>
      </rect>
@@ -126,8 +94,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>40</y>
+      <x>750</x>
+      <y>150</y>
       <width>241</width>
       <height>41</height>
      </rect>
@@ -144,8 +112,8 @@
    <widget class="QLineEdit" name="amperOut">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>140</y>
+      <x>710</x>
+      <y>50</y>
       <width>151</width>
       <height>51</height>
      </rect>
@@ -162,32 +130,11 @@
      <string>0.0</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>500</y>
-      <width>421</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: red</string>
-    </property>
-    <property name="text">
-     <string>Типо соленоид</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="shtokValue">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>460</y>
+      <x>590</x>
+      <y>580</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -204,8 +151,8 @@
    <widget class="QLabel" name="shtokRealValue">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>580</y>
+      <x>390</x>
+      <y>631</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -222,8 +169,8 @@
    <widget class="QLabel" name="info">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>579</y>
+      <x>230</x>
+      <y>630</y>
       <width>151</width>
       <height>31</height>
      </rect>
@@ -232,25 +179,82 @@
      <string>(deBug info) lenOutside = </string>
     </property>
    </widget>
-   <zorder>label_13</zorder>
-   <zorder>line</zorder>
-   <zorder>shtok</zorder>
+   <widget class="QLabel" name="label_solenoid">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>500</y>
+      <width>590</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/laba_14/фывф.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_stock">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>500</y>
+      <width>590</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/laba_14/Без имени-4.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_instrumentation">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>691</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/laba_14/pribori.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>slider_stock</zorder>
    <zorder>mainOut</zorder>
    <zorder>amperDial</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>amperOut</zorder>
-   <zorder>label_3</zorder>
    <zorder>shtokValue</zorder>
    <zorder>shtokRealValue</zorder>
    <zorder>info</zorder>
+   <zorder>label_stock</zorder>
+   <zorder>label_instrumentation</zorder>
+   <zorder>label_solenoid</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1136</width>
      <height>21</height>
     </rect>
    </property>
