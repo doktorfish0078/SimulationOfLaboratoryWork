@@ -55,8 +55,8 @@
    <widget class="QLineEdit" name="mainOut">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>180</y>
+      <x>40</x>
+      <y>95</y>
       <width>321</width>
       <height>81</height>
      </rect>
@@ -126,8 +126,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>125</y>
+      <x>40</x>
+      <y>40</y>
       <width>241</width>
       <height>41</height>
      </rect>
