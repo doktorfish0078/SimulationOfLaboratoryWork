@@ -42,8 +42,6 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         sl = 10 ** (-2) * shtk_dist
         self.shtokValue.setText(' ' + str(47 - shtk_dist))
 
-        print(shtk_dist)
-        print(self.slider_stock.value()+6)
         self.label_stock.move(
             # self.slider_stock.
             self.stok_x+(self.slider_stock.value()+6)*5-0.12*(self.slider_stock.value()+6),
