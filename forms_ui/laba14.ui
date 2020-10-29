@@ -190,7 +190,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_stock_head_2">
+   <widget class="QLabel" name="label_lupa">
     <property name="geometry">
      <rect>
       <x>941</x>
@@ -339,7 +339,7 @@
    <zorder>amperOut</zorder>
    <zorder>label_formula_inf</zorder>
    <zorder>label_formula</zorder>
-   <zorder>label_stock_head_2</zorder>
+   <zorder>label_lupa</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -25,6 +25,9 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         self.label_instrumentation.setPixmap(QPixmap("..\\images\\laba_14\\pribori.png"))
         self.label_stock.setPixmap(QPixmap("..\\images\\laba_14\\stock.png"))
         self.label_solenoid.setPixmap(QPixmap("..\\images\\laba_14\\solenoid.png"))
+        self.label_formula.setPixmap(QPixmap("..\\images\\laba_14\\formula.png"))
+        self.label_lupa.setPixmap(QPixmap("..\\images\\laba_14\\lupa.png"))
+        self.label_stock_head.setPixmap(QPixmap("..\\images\\laba_14\\stock_head.png"))
 
         # connects
         self.amperDial.valueChanged.connect(self.set_amperage)
