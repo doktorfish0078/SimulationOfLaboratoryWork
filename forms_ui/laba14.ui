@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1136</width>
-    <height>706</height>
+    <width>1315</width>
+    <height>854</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,50 +20,53 @@
    <widget class="QSlider" name="slider_stock">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>620</y>
-      <width>221</width>
+      <x>810</x>
+      <y>720</y>
+      <width>500</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="maximumSize">
+     <size>
+      <width>500</width>
+      <height>16777215</height>
+     </size>
+    </property>
     <property name="minimum">
-     <number>-3</number>
+     <number>-6</number>
     </property>
     <property name="maximum">
-     <number>47</number>
+     <number>94</number>
     </property>
     <property name="value">
-     <number>-3</number>
+     <number>-6</number>
+    </property>
+    <property name="sliderPosition">
+     <number>-6</number>
+    </property>
+    <property name="tracking">
+     <bool>true</bool>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
-   </widget>
-   <widget class="QLineEdit" name="mainOut">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>220</y>
-      <width>321</width>
-      <height>81</height>
-     </rect>
+    <property name="invertedAppearance">
+     <bool>false</bool>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
+    <property name="invertedControls">
+     <bool>false</bool>
     </property>
-    <property name="text">
-     <string>0.0</string>
+    <property name="tickPosition">
+     <enum>QSlider::NoTicks</enum>
     </property>
    </widget>
    <widget class="QDial" name="amperDial">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>10</y>
-      <width>151</width>
-      <height>101</height>
+      <x>570</x>
+      <y>380</y>
+      <width>131</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="maximum">
@@ -73,70 +76,13 @@
      <number>1</number>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>10</y>
-      <width>181</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Амперметр</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>750</x>
-      <y>150</y>
-      <width>241</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Индукция</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="amperOut">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>50</y>
-      <width>151</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string>0.0</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="shtokValue">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>580</y>
-      <width>41</width>
-      <height>31</height>
+      <x>970</x>
+      <y>390</y>
+      <width>121</width>
+      <height>120</height>
      </rect>
     </property>
     <property name="font">
@@ -144,55 +90,32 @@
       <pointsize>16</pointsize>
      </font>
     </property>
-    <property name="text">
-     <string>50</string>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
-   </widget>
-   <widget class="QLabel" name="shtokRealValue">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>631</y>
-      <width>41</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>9</pointsize>
-     </font>
+    <property name="styleSheet">
+     <string notr="true">QLabel { border-radius: 60px;
+        
+	background-color:rgb(101, 100, 89); }</string>
     </property>
     <property name="text">
-     <string>-3</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="info">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>630</y>
-      <width>151</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>(deBug info) lenOutside = </string>
+     <string> 50</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_solenoid">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>500</y>
-      <width>590</width>
-      <height>70</height>
+      <y>670</y>
+      <width>703</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../images/laba_14/фывф.png</pixmap>
+     <pixmap>../images/laba_14/solenoid.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -201,17 +124,23 @@
    <widget class="QLabel" name="label_stock">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>500</y>
-      <width>590</width>
-      <height>70</height>
+      <x>170</x>
+      <y>690</y>
+      <width>498</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../images/laba_14/Без имени-4.png</pixmap>
+     <pixmap>../images/laba_14/stock.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -220,10 +149,10 @@
    <widget class="QLabel" name="label_instrumentation">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>691</width>
-      <height>491</height>
+      <x>-10</x>
+      <y>50</y>
+      <width>881</width>
+      <height>631</height>
      </rect>
     </property>
     <property name="text">
@@ -236,26 +165,189 @@
      <bool>true</bool>
     </property>
    </widget>
-   <zorder>slider_stock</zorder>
-   <zorder>mainOut</zorder>
-   <zorder>amperDial</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>amperOut</zorder>
-   <zorder>shtokValue</zorder>
-   <zorder>shtokRealValue</zorder>
-   <zorder>info</zorder>
-   <zorder>label_stock</zorder>
+   <widget class="QLabel" name="label_stock_head">
+    <property name="geometry">
+     <rect>
+      <x>668</x>
+      <y>700</y>
+      <width>142</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>150</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/laba_14/stock_head.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_stock_head_2">
+    <property name="geometry">
+     <rect>
+      <x>941</x>
+      <y>380</y>
+      <width>251</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/laba_14/lupa.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_shtok_value_inf">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>300</y>
+      <width>301</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Текущая отметка на штоке:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="mainOut">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>120</y>
+      <width>226</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(80, 113, 223);</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="amperOut">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>390</y>
+      <width>131</width>
+      <height>103</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(80, 113, 223);</string>
+    </property>
+    <property name="text">
+     <string>0.0</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_formula_inf">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>40</y>
+      <width>411</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Формула поиска индукции соленоида:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_formula">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>100</y>
+      <width>461</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/laba_14/formula.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>label_instrumentation</zorder>
+   <zorder>amperDial</zorder>
+   <zorder>slider_stock</zorder>
+   <zorder>label_stock</zorder>
+   <zorder>label_stock_head</zorder>
+   <zorder>shtokValue</zorder>
+   <zorder>label_stock_head_2</zorder>
+   <zorder>label_shtok_value_inf</zorder>
+   <zorder>mainOut</zorder>
    <zorder>label_solenoid</zorder>
+   <zorder>amperOut</zorder>
+   <zorder>label_formula_inf</zorder>
+   <zorder>label_formula</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1136</width>
-     <height>21</height>
+     <width>1315</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
