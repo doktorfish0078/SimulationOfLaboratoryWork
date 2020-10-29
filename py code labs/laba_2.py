@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtGui import QPixmap
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
 from converted_forms_to_py import laba2
 
@@ -76,24 +76,30 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
                 self.galvanometer.display(0)
 
     def change_slot_battery(self):
-        # проверка первого слота
-        if self.check_battery1.isChecked():
-            self.label_battery1.hide()
-            self.slot_battery1.setPixmap(self.map_full_slot_battery)
+        if not(self.check_battery1.isChecked() * self.check_battery2.isChecked()):
+            # проверка первого слота
+            if self.check_battery1.isChecked():
+                self.label_battery1.hide()
+                self.slot_battery1.setPixmap(self.map_full_slot_battery)
+            else:
+                self.slot_battery1.setPixmap(self.map_empty_slot_battery)
+                self.label_battery1.show()
+
+            # проверка второго слота
+            if self.check_battery2.isChecked():
+                self.slot_battery2.setPixmap(self.map_full_slot_battery)
+                self.label_battery2.hide()
+            else:
+                self.slot_battery2.setPixmap(self.map_empty_slot_battery)
+                self.label_battery2.show()
+
+            self.change_value_galvanometer()
         else:
-            self.slot_battery1.setPixmap(self.map_empty_slot_battery)
-            self.label_battery1.show()
-
-        # проверка второго слота
-        if self.check_battery2.isChecked():
-            self.slot_battery2.setPixmap(self.map_full_slot_battery)
-            self.label_battery2.hide()
-        else:
-            self.slot_battery2.setPixmap(self.map_empty_slot_battery)
-            self.label_battery2.show()
-
-        self.change_value_galvanometer()
-
+            QMessageBox.critical(self, "Нельзя измерять более 1 батареи", "Нельзя измерять более 1 батареи,хорошо?",
+                                 QMessageBox.Ok)
+            self.check_battery1.setChecked(False)
+            self.check_battery2.setChecked(False)
+            self.change_slot_battery()
     # Для кликабельности label
     def eventFilter(self, obj, e):
         if e.type() == 2:
@@ -103,6 +109,7 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
             elif obj == self.label_battery2:
                 self.check_battery2.setChecked(True)
                 self.change_slot_battery()
+
             elif obj == self.slot_battery1:
                 self.check_battery1.setChecked(False)
                 self.change_slot_battery()
