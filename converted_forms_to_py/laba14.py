@@ -126,13 +126,13 @@ class Ui_Laba14(object):
         self.label_stock.raise_()
         self.label_stock_head.raise_()
         self.shtokValue.raise_()
-        self.label_stock_head_2.raise_()
         self.label_shtok_value_inf.raise_()
         self.mainOut.raise_()
         self.label_solenoid.raise_()
         self.amperOut.raise_()
         self.label_formula_inf.raise_()
         self.label_formula.raise_()
+        self.label_stock_head_2.raise_()
         Laba14.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Laba14)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1315, 26))
@@ -148,7 +148,7 @@ class Ui_Laba14(object):
     def retranslateUi(self, Laba14):
         _translate = QtCore.QCoreApplication.translate
         Laba14.setWindowTitle(_translate("Laba14", "MainWindow"))
-        self.shtokValue.setText(_translate("Laba14", " 50"))
+        self.shtokValue.setText(_translate("Laba14", "   50.0"))
         self.label_shtok_value_inf.setText(_translate("Laba14", "Текущая отметка на штоке:"))
         self.amperOut.setText(_translate("Laba14", "0.0"))
         self.label_formula_inf.setText(_translate("Laba14", "Формула поиска индукции соленоида:"))

@@ -99,7 +99,7 @@
 	background-color:rgb(101, 100, 89); }</string>
     </property>
     <property name="text">
-     <string> 50</string>
+     <string>   50.0</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_solenoid">
@@ -333,13 +333,13 @@
    <zorder>label_stock</zorder>
    <zorder>label_stock_head</zorder>
    <zorder>shtokValue</zorder>
-   <zorder>label_stock_head_2</zorder>
    <zorder>label_shtok_value_inf</zorder>
    <zorder>mainOut</zorder>
    <zorder>label_solenoid</zorder>
    <zorder>amperOut</zorder>
    <zorder>label_formula_inf</zorder>
    <zorder>label_formula</zorder>
+   <zorder>label_stock_head_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

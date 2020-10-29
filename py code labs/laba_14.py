@@ -40,7 +40,7 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         # constants
         shtk_dist = (float(self.slider_stock.value())/2.0);
         sl = 10 ** (-2) * shtk_dist
-        self.shtokValue.setText(' ' + str(47 - shtk_dist))
+        self.shtokValue.setText('   ' + str(47 - shtk_dist))
 
         self.label_stock.move(
             # self.slider_stock.
