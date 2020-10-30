@@ -76,7 +76,7 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
                 self.galvanometer.display(0)
 
     def change_slot_battery(self):
-        if not(self.check_battery1.isChecked() * self.check_battery2.isChecked()):
+        if not(self.check_battery1.isChecked() and self.check_battery2.isChecked()):
             # проверка первого слота
             if self.check_battery1.isChecked():
                 self.label_battery1.hide()
