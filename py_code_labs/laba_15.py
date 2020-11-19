@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QMainWindow, QWidget
 
 from converted_forms_to_py import laba15, info_laba
 
+from py_code_labs import svg_widget_ammeter
 
 
 class Laba15(QMainWindow, laba15.Ui_Laba15):
@@ -24,6 +25,9 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
         self.resistance_r = 30
         self.resistance_kat = 54
 
+        self.ammeter = svg_widget_ammeter.svg_widget_ammeter()
+        self.verticalLayout.addWidget(self.ammeter.svg_widget, 1)
+
         #set pixmaps
         self.label_resistor.setPixmap(QPixmap("..\\images\\laba_15\\resistor.png"))
         self.label_capacitor.setPixmap(QPixmap("..\\images\\laba_15\\capacitor.png"))
@@ -34,7 +38,7 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
         self.measure_3_button.clicked.connect(self.measure_3)
         self.measure_r_button.clicked.connect(self.measure_r)
 
-        self.slider_voltage.valueChanged.connect(self.work)
+        self.slider_voltage.valueChanged.connect(self.update_ammeter)
 
         self.NetCheck.clicked.connect(self.zero_point_voltmeter)
 
@@ -44,10 +48,11 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
         if not self.NetCheck.isChecked():
             self.voltmeter.display(None)
 
-    def work(self):
+    def update_ammeter(self):
         if self.NetCheck.isChecked():
             self.voltage_regulator = self.slider_voltage.value()
-            self.ammeter.display(self.voltage_regulator / self.total_resistance)
+
+            self.ammeter.update_svg_ammeter(self.voltage_regulator / self.total_resistance)
 
     def measure_c(self):
         if self.NetCheck.isChecked():

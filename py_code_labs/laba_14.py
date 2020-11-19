@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QMainWindow
 
 from converted_forms_to_py import laba14
 
+from py_code_labs import svg_widget_ammeter
 
 class Laba14(QMainWindow, laba14.Ui_Laba14):
     # global const
@@ -21,6 +22,10 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         # const ini
         self.stok_x = self.label_stock.geometry().getCoords()[0]
         self.stok_y = self.label_stock.geometry().getCoords()[1]
+
+        self.amperOut = svg_widget_ammeter.svg_widget_ammeter()
+        self.verticalLayout.addWidget(self.amperOut.svg_widget)
+
         # set pixmaps
         self.label_instrumentation.setPixmap(QPixmap("..\\images\\laba_14\\pribori.png"))
         self.label_stock.setPixmap(QPixmap("..\\images\\laba_14\\stock.png"))
@@ -37,7 +42,7 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
     def set_amperage(self):
         # print(float(self.amperDial.value())/10)
         self.amperage = self.amperDial.value() / 10
-        self.amperOut.setText(str(self.amperage))
+        self.amperOut.update_svg_ammeter(self.amperage)
 
     def set_induction(self):
         # constants

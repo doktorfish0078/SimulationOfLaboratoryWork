@@ -269,33 +269,6 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="amperOut">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>390</y>
-      <width>131</width>
-      <height>103</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(80, 113, 223);</string>
-    </property>
-    <property name="text">
-     <string>0.0</string>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_formula_inf">
     <property name="geometry">
      <rect>
@@ -339,6 +312,17 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>286</x>
+      <y>382</y>
+      <width>155</width>
+      <height>153</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout"/>
+   </widget>
    <zorder>label_instrumentation</zorder>
    <zorder>amperDial</zorder>
    <zorder>slider_stock</zorder>
@@ -348,10 +332,10 @@
    <zorder>label_shtok_value_inf</zorder>
    <zorder>mainOut</zorder>
    <zorder>label_solenoid</zorder>
-   <zorder>amperOut</zorder>
    <zorder>label_formula_inf</zorder>
    <zorder>label_formula</zorder>
    <zorder>label_lupa</zorder>
+   <zorder>verticalLayoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
