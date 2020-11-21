@@ -6,17 +6,19 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox, QWidget
 from converted_forms_to_py import laba2
 from converted_forms_to_py import info_laba
 
+from py_code_labs.svg_widget_galvanometer import svg_widget_galvanometer
 
 class Laba2(QMainWindow, laba2.Ui_Laba2):
     def __init__(self):
         super().__init__()
+        super().__init__()
         self.setupUi(self)
-
-        # rearm display
-        self.galvanometer.display(None)
 
         # constants
         self.info_laba_2 = Info_laba()
+
+        self.galvanometer = svg_widget_galvanometer()
+        self.verticalLayout_3.addWidget(self.galvanometer.svg_widget)
 
         # pixmaps
         self.map_left_pos_key = QPixmap("..\\images\\laba_2\\key_left.png")
@@ -25,6 +27,8 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
         self.map_battery = QPixmap("..\\images\\laba_2\\battery1")
         self.map_full_slot_battery = QPixmap("..\\images\\laba_2\\battery_in_slot.png")
         self.map_empty_slot_battery = QPixmap("..\\images\\laba_2\\slot_battery.png")
+        self.map_gc = QPixmap("..\\images\\laba_2\\Gc.png")
+        self.map_g = QPixmap("..\\images\\laba_2\\G.png")
 
         # для кликабельности лейблов
         self.label_battery1.installEventFilter(self)
@@ -38,6 +42,8 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
         self.slot_battery2.setPixmap(self.map_empty_slot_battery)
         self.label_battery1.setPixmap(self.map_battery)
         self.label_battery2.setPixmap(self.map_battery)
+        self.label_Gc.setPixmap(self.map_gc)
+        self.label_G.setPixmap(self.map_g)
 
         # connects
         self.key_slider.valueChanged.connect(self.change_picture_key)
@@ -62,24 +68,24 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
 
         if self.key_slider.value() == 0:  # левая позиция ключа
             if value_reostat < 14.5:
-                self.galvanometer.display(-(14.5 / 0.152 - value_reostat / 0.152))
+                self.galvanometer.update_svg_galvanometer(-(14.5 / 0.152 - value_reostat / 0.152))
             else:
-                self.galvanometer.display(value_reostat / 0.152 - 14.5 / 0.152)
+                self.galvanometer.update_svg_galvanometer(value_reostat / 0.152 - 14.5 / 0.152)
 
         elif self.key_slider.value() == 1:  # центральная позиция ключа(разомкнут)
-            self.galvanometer.display(None)
+            self.galvanometer.update_svg_galvanometer(0)
 
         self.label_info.setText("")
 
         if self.key_slider.value() == 2:  # правая позиция ключа
             if self.check_battery1.isChecked() or self.check_battery2.isChecked():
                 if value_reostat < 21.5:
-                    self.galvanometer.display(-(21.5 / 0.165 - value_reostat / 0.165))
+                    self.galvanometer.update_svg_galvanometer(-(21.5 / 0.165 - value_reostat / 0.165))
                 else:
-                    self.galvanometer.display(value_reostat / 0.165 - 21.5 / 0.165)
+                    self.galvanometer.update_svg_galvanometer(value_reostat / 0.165 - 21.5 / 0.165)
             else:
                 self.label_info.setText("Ни одна из батареек не установлена")
-                self.galvanometer.display(0)
+                self.galvanometer.update_svg_galvanometer(0)
 
     def change_slot_battery(self):
         if not (self.check_battery1.isChecked() and self.check_battery2.isChecked()):

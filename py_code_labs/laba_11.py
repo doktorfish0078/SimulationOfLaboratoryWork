@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox, QWidget
 from converted_forms_to_py import laba11
 from converted_forms_to_py import info_laba
 
+from py_code_labs.svg_widget_galvanometer import svg_widget_galvanometer
 
 class Laba11(QMainWindow, laba11.Ui_Laba11):
     def __init__(self):
@@ -15,6 +16,11 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
 
         # constants
         self.info_laba_11 = Info_laba()
+
+        self.power_supply = False
+
+        self.galvanometer = svg_widget_galvanometer()
+        self.verticalLayout.addWidget(self.galvanometer.svg_widget)
 
         self.r1_value = 210
         self.r2_value = 405
@@ -35,11 +41,16 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         self.map_r1_r2_r3_serial = QPixmap("..\\images\\laba_11\\r1r2r3serial.png")
         self.map_r1_r2_r3_parall = QPixmap("..\\images\\laba_11\\r1r2r3parall.png")
 
+        self.power_supply_off = QPixmap("..\\images\\laba_11\\power_supply_off.png")
+        self.power_supply_on = QPixmap("..\\images\\laba_11\\power_supply_on.png")
+
         # set pixmaps
         self.label_resistors.setPixmap(self.map_res_default)
         self.button_info.setIcon(QIcon("..\\images\\laba_11\\info.png"))
         self.label_resistors_shop.setPixmap(QPixmap("..\\images\\laba_11\\resistor_store.png"))
-        self.label_voltmeter.setPixmap(QPixmap("..\\images\\laba_11\\voltmeter.png"))
+
+        # Для кликабельности лейблов
+        self.label_power_supply.installEventFilter(self)
 
         # connects
         self.dial_1.valueChanged.connect(self.change_resistors_store_value)
@@ -48,7 +59,8 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         self.dial_4.valueChanged.connect(self.change_resistors_store_value)
         self.dial_5.valueChanged.connect(self.change_resistors_store_value)
         self.dial_6.valueChanged.connect(self.change_resistors_store_value)
-        self.PowerCheck.clicked.connect(self.change_resistors_store_value)
+
+        self.label_power_supply.setPixmap(self.power_supply_off)
 
         self.single.clicked.connect(self.change_map_resistors)
         self.serial.clicked.connect(self.change_map_resistors)
@@ -66,7 +78,8 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
                                    self.dial_5.value() * 1 + self.dial_6.value() * 0.1
 
         self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(self.resistance_on_store))
-        if self.PowerCheck.isChecked():
+
+        if self.power_supply:
             self.resistance_calculation()
 
     def resistance_calculation(self):
@@ -105,16 +118,14 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
                         summary_resist = 0
                         for resistor in resistors_used:
                             if resistor[0]:
-                                summary_resist += 1/resistor[1]
+                                summary_resist += 1 / resistor[1]
                         value_resistors = (1 / summary_resist)
                     else:
                         for resistor in resistors_used:
                             if resistor[0]:
                                 value_resistors = resistor[1]
 
-
-
-        self.voltmeter.setText("{:.2f}".format(self.resistance_on_store / 4 - value_resistors))
+        self.galvanometer.update_svg_galvanometer(float("{:.2f}".format(self.resistance_on_store / 4 - value_resistors)))
 
     def reset(self):
         for dial in [self.dial_1, self.dial_2, self.dial_3,
@@ -170,6 +181,18 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
 
     def show_info_about_laba(self):
         self.info_laba_11.show()
+
+    # для лейблов
+    def eventFilter(self, obj, e):
+        if e.type() == 2:
+            if obj == self.label_power_supply:
+                self.power_supply = not self.power_supply
+                if self.power_supply:
+                    self.label_power_supply.setPixmap(self.power_supply_on)
+                else:
+                    self.label_power_supply.setPixmap(self.power_supply_off)
+                self.change_resistors_store_value()
+        return super(QMainWindow, self).eventFilter(obj, e)
 
 
 class Info_laba(QWidget, info_laba.Ui_info_laba_11):

@@ -32,6 +32,7 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
         self.label_resistor.setPixmap(QPixmap("..\\images\\laba_15\\resistor.png"))
         self.label_capacitor.setPixmap(QPixmap("..\\images\\laba_15\\capacitor.png"))
         self.label_coil.setPixmap(QPixmap("..\\images\\laba_15\\coil.png"))
+        self.label_regulator.setPixmap(QPixmap("..\\images\\laba_15\\regulator_voltage.png"))
 
         # connects
         self.measure_c_button.clicked.connect(self.measure_c)

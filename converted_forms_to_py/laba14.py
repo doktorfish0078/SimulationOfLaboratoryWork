@@ -18,6 +18,7 @@ class Ui_Laba14(object):
         Laba14.setMinimumSize(QtCore.QSize(1315, 854))
         Laba14.setMaximumSize(QtCore.QSize(1315, 854))
         Laba14.setLayoutDirection(QtCore.Qt.LeftToRight)
+        Laba14.setStyleSheet("background-color: rgb(176,193,208);")
         self.centralwidget = QtWidgets.QWidget(Laba14)
         self.centralwidget.setObjectName("centralwidget")
         self.slider_stock = QtWidgets.QSlider(self.centralwidget)

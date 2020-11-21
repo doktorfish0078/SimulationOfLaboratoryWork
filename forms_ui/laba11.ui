@@ -26,14 +26,14 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(201, 207, 255);</string>
+   <string notr="true">background-color: rgb(176,193,208);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>150</y>
+      <x>434</x>
+      <y>206</y>
       <width>100</width>
       <height>31</height>
      </rect>
@@ -42,7 +42,7 @@
      <string notr="true">font: 75 10pt &quot;Comic Sans MS&quot;;</string>
     </property>
     <property name="text">
-     <string>Вольтметр</string>
+     <string>Гальванометр</string>
     </property>
     <property name="textFormat">
      <enum>Qt::AutoText</enum>
@@ -54,60 +54,11 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_voltmeter">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>10</y>
-      <width>151</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../images/laba_11/voltmeter.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="voltmeter">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>20</y>
-      <width>131</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(80, 113, 223);</string>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QDial" name="dial_1">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>290</y>
+      <x>598</x>
+      <y>248</y>
       <width>101</width>
       <height>101</height>
      </rect>
@@ -235,8 +186,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QLabel" name="label_resistors_shop">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>260</y>
+      <x>568</x>
+      <y>218</y>
       <width>401</width>
       <height>251</height>
      </rect>
@@ -254,8 +205,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_2">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>290</y>
+      <x>718</x>
+      <y>248</y>
       <width>101</width>
       <height>101</height>
      </rect>
@@ -383,8 +334,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_3">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>290</y>
+      <x>838</x>
+      <y>248</y>
       <width>101</width>
       <height>101</height>
      </rect>
@@ -512,8 +463,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_4">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>400</y>
+      <x>598</x>
+      <y>358</y>
       <width>101</width>
       <height>101</height>
      </rect>
@@ -641,8 +592,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_5">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>400</y>
+      <x>718</x>
+      <y>358</y>
       <width>101</width>
       <height>101</height>
      </rect>
@@ -770,8 +721,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_6">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>400</y>
+      <x>838</x>
+      <y>358</y>
       <width>101</width>
       <height>101</height>
      </rect>
@@ -899,8 +850,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QLabel" name="resistors_store">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>520</y>
+      <x>568</x>
+      <y>478</y>
       <width>401</width>
       <height>21</height>
      </rect>
@@ -918,8 +869,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QPushButton" name="resetButton">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>550</y>
+      <x>708</x>
+      <y>508</y>
       <width>151</width>
       <height>71</height>
      </rect>
@@ -930,22 +881,6 @@ background-color: rgb(28, 30, 29);</string>
     <property name="text">
      <string>Сбросить
 сопротивления</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="PowerCheck">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>610</y>
-      <width>161</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 16pt &quot;Comic Sans MS&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Замкнуть</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_info">
@@ -974,8 +909,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QLabel" name="label_resistors">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>250</y>
+      <x>88</x>
+      <y>222</y>
       <width>251</width>
       <height>181</height>
      </rect>
@@ -993,8 +928,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>440</y>
+      <x>78</x>
+      <y>412</y>
       <width>299</width>
       <height>34</height>
      </rect>
@@ -1026,10 +961,10 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>480</y>
+      <x>78</x>
+      <y>452</y>
       <width>299</width>
-      <height>136</height>
+      <height>101</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1077,10 +1012,38 @@ background-color: rgb(28, 30, 29);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label_power_supply">
+    <property name="geometry">
+     <rect>
+      <x>314</x>
+      <y>586</y>
+      <width>331</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/laba_11/power_supply_off.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>2</y>
+      <width>283</width>
+      <height>203</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout"/>
+   </widget>
    <zorder>label_resistors_shop</zorder>
    <zorder>label_8</zorder>
-   <zorder>label_voltmeter</zorder>
-   <zorder>voltmeter</zorder>
    <zorder>dial_1</zorder>
    <zorder>dial_2</zorder>
    <zorder>dial_3</zorder>
@@ -1089,11 +1052,12 @@ background-color: rgb(28, 30, 29);</string>
    <zorder>dial_6</zorder>
    <zorder>resistors_store</zorder>
    <zorder>resetButton</zorder>
-   <zorder>PowerCheck</zorder>
    <zorder>button_info</zorder>
    <zorder>label_resistors</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
+   <zorder>label_power_supply</zorder>
+   <zorder>verticalLayoutWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
