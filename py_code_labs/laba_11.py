@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox, QWidget
 from converted_forms_to_py import laba11
 from converted_forms_to_py import info_laba
 
-from py_code_labs.svg_widget_galvanometer import svg_widget_galvanometer
+from svg_widgets.svg_widget_galvanometer import svg_widget_galvanometer
 
 class Laba11(QMainWindow, laba11.Ui_Laba11):
     def __init__(self):
@@ -41,13 +41,16 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         self.map_r1_r2_r3_serial = QPixmap("..\\images\\laba_11\\r1r2r3serial.png")
         self.map_r1_r2_r3_parall = QPixmap("..\\images\\laba_11\\r1r2r3parall.png")
 
-        self.power_supply_off = QPixmap("..\\images\\laba_11\\power_supply_off.png")
-        self.power_supply_on = QPixmap("..\\images\\laba_11\\power_supply_on.png")
+        self.map_power_supply_off = QPixmap("..\\images\\laba_11\\power_supply_off.png")
+        self.map_power_supply_on = QPixmap("..\\images\\laba_11\\power_supply_on.png")
+
+        self.map_voltage_divider = QPixmap("..\\images\\laba_11\\voltage_divider.png")
 
         # set pixmaps
         self.label_resistors.setPixmap(self.map_res_default)
         self.button_info.setIcon(QIcon("..\\images\\laba_11\\info.png"))
         self.label_resistors_shop.setPixmap(QPixmap("..\\images\\laba_11\\resistor_store.png"))
+        self.label_voltage_divider.setPixmap(self.map_voltage_divider)
 
         # Для кликабельности лейблов
         self.label_power_supply.installEventFilter(self)
@@ -60,7 +63,7 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         self.dial_5.valueChanged.connect(self.change_resistors_store_value)
         self.dial_6.valueChanged.connect(self.change_resistors_store_value)
 
-        self.label_power_supply.setPixmap(self.power_supply_off)
+        self.label_power_supply.setPixmap(self.map_power_supply_off)
 
         self.single.clicked.connect(self.change_map_resistors)
         self.serial.clicked.connect(self.change_map_resistors)
@@ -188,9 +191,9 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
             if obj == self.label_power_supply:
                 self.power_supply = not self.power_supply
                 if self.power_supply:
-                    self.label_power_supply.setPixmap(self.power_supply_on)
+                    self.label_power_supply.setPixmap(self.map_power_supply_on)
                 else:
-                    self.label_power_supply.setPixmap(self.power_supply_off)
+                    self.label_power_supply.setPixmap(self.map_power_supply_off)
                 self.change_resistors_store_value()
         return super(QMainWindow, self).eventFilter(obj, e)
 

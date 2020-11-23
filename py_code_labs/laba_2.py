@@ -6,11 +6,10 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox, QWidget
 from converted_forms_to_py import laba2
 from converted_forms_to_py import info_laba
 
-from py_code_labs.svg_widget_galvanometer import svg_widget_galvanometer
+from svg_widgets.svg_widget_galvanometer import svg_widget_galvanometer
 
 class Laba2(QMainWindow, laba2.Ui_Laba2):
     def __init__(self):
-        super().__init__()
         super().__init__()
         self.setupUi(self)
 

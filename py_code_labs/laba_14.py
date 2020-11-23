@@ -7,7 +7,8 @@ from PyQt5.QtWidgets import QMainWindow
 
 from converted_forms_to_py import laba14
 
-from py_code_labs import svg_widget_ammeter
+from svg_widgets import svg_widget_ammeter
+
 
 class Laba14(QMainWindow, laba14.Ui_Laba14):
     # global const

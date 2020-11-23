@@ -6,27 +6,32 @@ from PyQt5.QtWidgets import QMainWindow, QWidget
 
 from converted_forms_to_py import laba15, info_laba
 
-from py_code_labs import svg_widget_ammeter
-
+from svg_widgets.svg_widget_ammeter import svg_widget_ammeter
+from svg_widgets.svg_widget_milli_voltmeter import svg_widget_milli_voltmeter
 
 class Laba15(QMainWindow, laba15.Ui_Laba15):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        # rearm display
-        self.voltmeter.display(None)
 
         # constants
         self.info_laba_15 = Info_laba()
 
-        self.total_resistance = 55.5
-        self.voltage_regulator = 0
         self.resistance_c = 40
         self.resistance_r = 30
         self.resistance_kat = 54
+        self.total_resistance = 55.5
 
-        self.ammeter = svg_widget_ammeter.svg_widget_ammeter()
+        # values
+        self.voltage_regulator = 0
+        self.power_milli_voltmeter = False
+
+        # set widgets
+        self.ammeter = svg_widget_ammeter()
         self.verticalLayout.addWidget(self.ammeter.svg_widget, 1)
+
+        self.milli_voltmeter = svg_widget_milli_voltmeter()
+        self.verticalLayout_3.addWidget(self.milli_voltmeter.svg_widget)
 
         #set pixmaps
         self.label_resistor.setPixmap(QPixmap("..\\images\\laba_15\\resistor.png"))
@@ -34,47 +39,50 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
         self.label_coil.setPixmap(QPixmap("..\\images\\laba_15\\coil.png"))
         self.label_regulator.setPixmap(QPixmap("..\\images\\laba_15\\regulator_voltage.png"))
 
+        #для кликабельности лейблов
+        self.label_power.installEventFilter(self)
+
         # connects
-        self.measure_c_button.clicked.connect(self.measure_c)
-        self.measure_3_button.clicked.connect(self.measure_3)
-        self.measure_r_button.clicked.connect(self.measure_r)
+        self.measure_c_button.clicked.connect(self.measure_capacitor)
+        self.measure_3_button.clicked.connect(self.measure_coil)
+        self.measure_r_button.clicked.connect(self.measure_resistor)
 
         self.slider_voltage.valueChanged.connect(self.update_ammeter)
 
-        self.NetCheck.clicked.connect(self.zero_point_voltmeter)
-
         self.button_info.clicked.connect(self.show_info_about_laba)
 
-    def zero_point_voltmeter(self):
-        if not self.NetCheck.isChecked():
-            self.voltmeter.display(None)
-
     def update_ammeter(self):
-        if self.NetCheck.isChecked():
-            self.voltage_regulator = self.slider_voltage.value()
+        self.voltage_regulator = self.slider_voltage.value()
+        self.ammeter.update_svg_ammeter(self.voltage_regulator / self.total_resistance)
 
-            self.ammeter.update_svg_ammeter(self.voltage_regulator / self.total_resistance)
-
-    def measure_c(self):
-        if self.NetCheck.isChecked():
+    def measure_capacitor(self):
+        if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
-            self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_c))
+            self.milli_voltmeter.update_angle_svg_milli_voltmeter(float("{:.1f}".format(ammeter_value * self.resistance_c)))
         else:
-            self.voltmeter.display(None)
+            self.milli_voltmeter.update_angle_svg_milli_voltmeter(0)
 
-    def measure_3(self):
-        if self.NetCheck.isChecked():
+    def measure_coil(self):
+        if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
-            self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_kat))
+            self.milli_voltmeter.update_angle_svg_milli_voltmeter(float("{:.1f}".format(ammeter_value * self.resistance_kat)))
         else:
-            self.voltmeter.display(None)
+            self.milli_voltmeter.update_angle_svg_milli_voltmeter(0)
 
-    def measure_r(self):
-        if self.NetCheck.isChecked():
+    def measure_resistor(self):
+        if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
-            self.voltmeter.display("{:.1f}".format(ammeter_value * self.resistance_r))
+            self.milli_voltmeter.update_angle_svg_milli_voltmeter(float("{:.1f}".format(ammeter_value * self.resistance_r)))
         else:
-            self.voltmeter.display(None)
+            self.milli_voltmeter.update_angle_svg_milli_voltmeter(0)
+
+    # Для кликабельности label
+    def eventFilter(self, obj, e):
+        if e.type() == 2:
+            if obj == self.label_power:
+                self.milli_voltmeter.change_power_svg()
+                self.power_milli_voltmeter = not self.power_milli_voltmeter
+        return super(QMainWindow, self).eventFilter(obj, e)
 
     def show_info_about_laba(self):
         self.info_laba_15.show()

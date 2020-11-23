@@ -472,10 +472,10 @@
    <widget class="QLabel" name="label_key">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>296</y>
-      <width>199</width>
-      <height>119</height>
+      <x>366</x>
+      <y>306</y>
+      <width>250</width>
+      <height>107</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -491,7 +491,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/key_middle.png</pixmap>
+     <pixmap>../images/laba_2/key_middle.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
