@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'F:\Projects\SimulationOfLaboratoryWork\forms_ui\laba15.ui'
+# Form implementation generated from reading ui file 'C:\Users\user\PycharmProjects\SimulationOfLaboratoryWork\forms_ui\laba15.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.1
 #
@@ -76,7 +76,7 @@ class Ui_Laba15(object):
         self.label_resistor = QtWidgets.QLabel(self.verticalLayoutWidget_4)
         self.label_resistor.setMaximumSize(QtCore.QSize(139, 30))
         self.label_resistor.setText("")
-        self.label_resistor.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\images/resistor.png"))
+        self.label_resistor.setPixmap(QtGui.QPixmap("C:\\Users\\user\\PycharmProjects\\SimulationOfLaboratoryWork\\forms_ui\\images/resistor.png"))
         self.label_resistor.setScaledContents(True)
         self.label_resistor.setObjectName("label_resistor")
         self.verticalLayout_6.addWidget(self.label_resistor)
@@ -98,7 +98,7 @@ class Ui_Laba15(object):
         self.button_info.setGeometry(QtCore.QRect(1172, 0, 41, 41))
         self.button_info.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_11/info.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\user\\PycharmProjects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_11/info.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.button_info.setIcon(icon)
         self.button_info.setIconSize(QtCore.QSize(32, 32))
         self.button_info.setObjectName("button_info")
@@ -128,7 +128,7 @@ class Ui_Laba15(object):
         self.label_regulator = QtWidgets.QLabel(self.centralwidget)
         self.label_regulator.setGeometry(QtCore.QRect(18, 8, 431, 249))
         self.label_regulator.setText("")
-        self.label_regulator.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_15/Безымянный-2.png"))
+        self.label_regulator.setPixmap(QtGui.QPixmap("C:\\Users\\user\\PycharmProjects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_15/Безымянный-2.png"))
         self.label_regulator.setScaledContents(True)
         self.label_regulator.setObjectName("label_regulator")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -153,7 +153,7 @@ class Ui_Laba15(object):
         self.label_capacitor.setSizePolicy(sizePolicy)
         self.label_capacitor.setMaximumSize(QtCore.QSize(11111, 11111))
         self.label_capacitor.setText("")
-        self.label_capacitor.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_15/capacitor.png"))
+        self.label_capacitor.setPixmap(QtGui.QPixmap("C:\\Users\\user\\PycharmProjects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_15/capacitor.png"))
         self.label_capacitor.setScaledContents(True)
         self.label_capacitor.setObjectName("label_capacitor")
         self.label_coil = QtWidgets.QLabel(self.centralwidget)
@@ -166,7 +166,7 @@ class Ui_Laba15(object):
         self.label_coil.setMaximumSize(QtCore.QSize(11111, 11111))
         self.label_coil.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_coil.setText("")
-        self.label_coil.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_15/coil.png"))
+        self.label_coil.setPixmap(QtGui.QPixmap("C:\\Users\\user\\PycharmProjects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_15/coil.png"))
         self.label_coil.setScaledContents(True)
         self.label_coil.setAlignment(QtCore.Qt.AlignCenter)
         self.label_coil.setWordWrap(False)

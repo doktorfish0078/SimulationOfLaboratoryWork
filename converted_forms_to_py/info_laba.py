@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'F:\Projects\SimulationOfLaboratoryWork\forms_ui\info_laba.ui'
+# Form implementation generated from reading ui file 'C:\Users\user\PycharmProjects\SimulationOfLaboratoryWork\forms_ui\info_laba.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.1
 #
@@ -23,7 +23,7 @@ class Ui_info_laba_11(object):
         sizePolicy.setHeightForWidth(self.label_info.sizePolicy().hasHeightForWidth())
         self.label_info.setSizePolicy(sizePolicy)
         self.label_info.setText("")
-        self.label_info.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_11/info_laba_11.jpg"))
+        self.label_info.setPixmap(QtGui.QPixmap("C:\\Users\\user\\PycharmProjects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_11/info_laba_11.jpg"))
         self.label_info.setScaledContents(True)
         self.label_info.setObjectName("label_info")
 

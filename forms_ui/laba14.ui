@@ -329,6 +329,29 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
+   <widget class="QPushButton" name="button_info">
+    <property name="geometry">
+     <rect>
+      <x>1260</x>
+      <y>0</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../images/laba_11/info.png</normaloff>../images/laba_11/info.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
    <zorder>label_instrumentation</zorder>
    <zorder>amperDial</zorder>
    <zorder>slider_stock</zorder>
@@ -342,6 +365,7 @@
    <zorder>label_formula</zorder>
    <zorder>label_lupa</zorder>
    <zorder>verticalLayoutWidget</zorder>
+   <zorder>button_info</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

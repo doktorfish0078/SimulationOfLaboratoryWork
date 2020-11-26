@@ -2,12 +2,22 @@ import sys
 from math import sqrt
 
 from PyQt5 import QtWidgets
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtGui import QPixmap, QIcon
+from PyQt5.QtWidgets import QMainWindow, QWidget
 
 from converted_forms_to_py import laba14
+from converted_forms_to_py import info_laba
 
 from svg_widgets import svg_widget_ammeter
+
+
+class Info_laba(QWidget, info_laba.Ui_info_laba_11):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+
+        # set pixmaps
+        self.label_info.setPixmap(QPixmap("..\\images\\laba_14\\info_laba_14.jpg"))
 
 
 class Laba14(QMainWindow, laba14.Ui_Laba14):
@@ -18,6 +28,10 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
 
 
     def __init__(self):
+
+        # constants
+        self.info_laba_14 = Info_laba()
+
         super().__init__()
         self.setupUi(self)
         # const ini
@@ -34,11 +48,16 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         self.label_formula.setPixmap(QPixmap("..\\images\\laba_14\\formula.png"))
         self.label_lupa.setPixmap(QPixmap("..\\images\\laba_14\\lupa.png"))
         self.label_stock_head.setPixmap(QPixmap("..\\images\\laba_14\\stock_head.png"))
+        self.button_info.setIcon(QIcon("..\\images\\laba_14\\info.png"))
 
         # connects
         self.amperDial.valueChanged.connect(self.set_amperage)
         self.amperDial.valueChanged.connect(self.set_induction)
         self.slider_stock.valueChanged.connect(self.set_induction)
+        self.button_info.clicked.connect(self.show_info_about_laba)
+
+    def show_info_about_laba(self):
+        self.info_laba_14.show()
 
     def set_amperage(self):
         # print(float(self.amperDial.value())/10)
