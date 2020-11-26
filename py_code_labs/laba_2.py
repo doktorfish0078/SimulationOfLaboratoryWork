@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QMessageBox, QWidget
 
@@ -43,6 +43,7 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
         self.label_battery2.setPixmap(self.map_battery)
         self.label_Gc.setPixmap(self.map_gc)
         self.label_G.setPixmap(self.map_g)
+        self.button_info.setIcon(QIcon("..\\images\\laba_2\\info.png"))
 
         # connects
         self.key_slider.valueChanged.connect(self.change_picture_key)

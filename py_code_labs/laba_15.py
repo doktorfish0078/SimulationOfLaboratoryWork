@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QWidget
 
@@ -38,6 +38,7 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
         self.label_capacitor.setPixmap(QPixmap("..\\images\\laba_15\\capacitor.png"))
         self.label_coil.setPixmap(QPixmap("..\\images\\laba_15\\coil.png"))
         self.label_regulator.setPixmap(QPixmap("..\\images\\laba_15\\regulator_voltage.png"))
+        self.button_info.setIcon(QIcon("..\\images\\laba_15\\info.png"))
 
         #для кликабельности лейблов
         self.label_power.installEventFilter(self)
