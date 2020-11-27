@@ -51,6 +51,7 @@ class Ui_Laba14(object):
         self.shtokValue.setObjectName("shtokValue")
         self.label_solenoid = QtWidgets.QLabel(self.centralwidget)
         self.label_solenoid.setGeometry(QtCore.QRect(0, 670, 703, 131))
+        self.label_solenoid.setStyleSheet("background-color: transparent;")
         self.label_solenoid.setText("")
         self.label_solenoid.setPixmap(QtGui.QPixmap("C:\\Users\\user\\PycharmProjects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_14/solenoid.png"))
         self.label_solenoid.setScaledContents(True)
