@@ -1,0 +1,1 @@
+pyinstaller --onedir --clean --noconsole --distpath="C:\Users\user\PycharmProjects\Simulation Of Laboratory Works" --icon=log.ico --name="Simulation Of Laboratory Works" --paths images "py_code_labs\start_window.py"
