@@ -218,7 +218,7 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         """
         self.info_laba_11.show()
 
-    # РґР»СЏ Р»РµР№Р±Р»РѕРІ
+    # Для кликабельности лейблов
     def eventFilter(self, obj, e):
         """
         Нужен для кликабельности лейблов

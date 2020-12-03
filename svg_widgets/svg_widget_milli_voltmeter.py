@@ -6,6 +6,13 @@ from PyQt5.QtSvg import QSvgWidget
 
 
 class svg_widget_milli_voltmeter:
+    """
+    Свг-виджет, прибор милливольтметер.
+    Для использования в форме необходимо:
+    1) создать layout с размером и желаемым расположением прибора
+    2) добавить в этот layout поле self.svg_widget экземпляра данного класса
+    3) всё готово!
+    """
     def __init__(self):
         # constants
         self.svg_str = """<?xml version="1.0" encoding="utf-8"?>
@@ -592,14 +599,23 @@ class svg_widget_milli_voltmeter:
         self.svg_widget = self.create_widget_milli_voltmeter()
 
     def create_widget_milli_voltmeter(self):
+        """
+        Создаёт свг_виджет, устанавливает стрелку прибора на 0 градусов,
+        тобишь на 0 вольт
+        :return: готовый к интеграции виджет
+        """
         svg_widget = QSvgWidget()
         svg_bytes = bytearray(self.svg_str.format(color=self.color_lamp_now, angle='0', angle_power=str(self.value_angle_power_now)), encoding='utf-8')
         svg_widget.renderer().load(svg_bytes)
         return svg_widget
 
     def update_angle_svg_milli_voltmeter(self, value_milli_voltmeter):
-        # value_milli_voltmeter - это то количество вольт,которое нужно отобразить на приборе
-        # 1 градус равен 0,25 деления милливольтметра
+        """
+        Обновляет показания прибора,путём изменения угла наклона стрелки прибора
+        1 градус равен 0,25 деления милливольтметра
+        :param value_milli_voltmeter: это то количество вольт,которое нужно отобразить на приборе
+        :return:
+        """
         self.value_milli_voltmeter = value_milli_voltmeter
         angle = value_milli_voltmeter / 0.25
         if value_milli_voltmeter > 30:
@@ -612,6 +628,9 @@ class svg_widget_milli_voltmeter:
         self.value_angle_now = angle
 
     def change_color_lamp_svg(self):
+        """
+        Меняет цвет лампы индикации подключения прибора к сети на протиположный
+        """
         if self.color_lamp_now == self.gray:
             svg_bytes = bytearray(self.svg_str.format(color=self.red, angle=str(self.value_angle_now), angle_power=str(self.value_angle_power_now)), encoding='utf-8')
             self.color_lamp_now = self.red
@@ -622,6 +641,9 @@ class svg_widget_milli_voltmeter:
         self.svg_widget.renderer().load(svg_bytes)
 
     def change_power_svg(self):
+        """
+        Меняет положение рычажка включения/отключения прибора на противоположное от имеющегося сейчас
+        """
         self.power_now = not self.power_now
         self.change_color_lamp_svg()
         if self.power_now:
@@ -635,6 +657,8 @@ class svg_widget_milli_voltmeter:
 
         self.svg_widget.renderer().load(svg_bytes)
 
-
     def value(self):
+        """
+        :return: Возвращает текущее показание милливольтметра
+        """
         return self.value_milli_voltmeter

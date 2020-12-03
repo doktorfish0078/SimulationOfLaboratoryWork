@@ -5,6 +5,13 @@ from PyQt5.QtSvg import QSvgWidget
 
 
 class svg_widget_ammeter:
+    """
+    Свг-виджет, прибор амперметр.
+    Для использования в форме необходимо:
+    1) создать layout с размером и желаемым расположением прибора
+    2) добавить в этот layout поле self.svg_widget экземпляра данного класса
+    3) всё готово!
+    """
     def __init__(self):
         self.svg_str = """<?xml version="1.0" encoding="utf-8"?>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -113,19 +120,29 @@ class svg_widget_ammeter:
         self.value_ammeter = 0
 
     def create_widget_ammeter(self):
+        """
+        Создаёт свг_виджет, устанавливает стрелку прибора на -60 градусов,
+        тобишь на 0 ампер
+        :return: готовый к интеграции виджет
+        """
         svg_widget = QSvgWidget()
         svg_bytes = bytearray(self.svg_str.format('-60'), encoding='utf-8')
         svg_widget.renderer().load(svg_bytes)
         return svg_widget
 
     def update_svg_ammeter(self, value_ammeter):
-        # value_ammeter - это то количество амперов,которое нужно отобразить на приборе
-        # 1 градус равен 0,0083 ампер, соответственно 120 градусов это 1 ампер, 0 это 0
+        """
+        Обновляет показания прибора,путём изменения угла наклона стрелки прибора
+        1 градус равен 0,0083 ампер, соответственно 120 градусов это 1 ампер, 0 это 0
+        :param value_ammeter: это то количество амперов,которое нужно отобразить на приборе
+        """
         self.value_ammeter = value_ammeter
-
         angle = -60 + (value_ammeter / 0.0083)
         svg_bytes = bytearray(self.svg_str.format(str(angle)), encoding='utf-8')
         self.svg_widget.renderer().load(svg_bytes)
 
     def value(self):
+        """
+        :return: Возвращает текущее показание амперметра
+        """
         return self.value_ammeter

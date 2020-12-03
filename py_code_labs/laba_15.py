@@ -10,7 +10,7 @@ from svg_widgets.svg_widget_ammeter import svg_widget_ammeter
 from svg_widgets.svg_widget_milli_voltmeter import svg_widget_milli_voltmeter
 
 class Laba15(QMainWindow, laba15.Ui_Laba15):
-    """ Класс лабы 11, инициализирует форму и заполняет её элементами """
+    """ Класс лабы 15, инициализирует форму и заполняет её элементами """
     def __init__(self):
         super().__init__()
         self.setupUi(self)

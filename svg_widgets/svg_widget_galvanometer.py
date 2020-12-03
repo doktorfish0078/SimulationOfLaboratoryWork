@@ -7,6 +7,13 @@ from PyQt5.QtSvg import QSvgWidget
 
 
 class svg_widget_galvanometer:
+    """
+    Свг-виджет, прибор гальванометр.
+    Для использования в форме необходимо:
+    1) создать layout с размером и желаемым расположением прибора
+    2) добавить в этот layout поле self.svg_widget экземпляра данного класса
+    3) всё готово!
+    """
     def __init__(self):
         self.svg_str = """<?xml version="1.0" encoding="utf-8"?>
         <!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -213,14 +220,23 @@ class svg_widget_galvanometer:
         self.value_angle_now = 0
 
     def create_widget_galvanometer(self):
+        """
+        Создаёт свг_виджет, устанавливает стрелку прибора на 0 градусов,
+        тобишь на 0 вольт
+        :return: готовый к интеграции виджет
+        """
         svg_widget = QSvgWidget()
         svg_bytes = bytearray(self.svg_str.format('0'), encoding='utf-8')
         svg_widget.renderer().load(svg_bytes)
         return svg_widget
 
     def update_svg_galvanometer(self, value_galvanometer):
-        # value_galvanometer - это то, какое значение нужно отобразить на приборе
-        # 1 градус равен 0,862 деления гальванометра
+        """
+        Обновляет показания прибора,путём изменения угла наклона стрелки прибора
+        1 градус равен 0,862 деления гальванометра
+        :param value_galvanometer: это то, какое значение нужно отобразить на приборе
+        :return:
+        """
         self.value_galvanometer = value_galvanometer
 
         angle = value_galvanometer / 0.862
@@ -234,4 +250,7 @@ class svg_widget_galvanometer:
         self.value_angle_now = angle
 
     def value(self):
+        """
+        :return: Возвращает текущее показание гальванометра
+        """
         return self.value_galvanometer
