@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 
 from PyQt5 import QtWidgets
@@ -10,6 +11,9 @@ from converted_forms_to_py import info_laba
 from svg_widgets.svg_widget_galvanometer import svg_widget_galvanometer
 
 class Laba11(QMainWindow, laba11.Ui_Laba11):
+    """Класс лабы 11, инициализирует форму и
+    заполняет её элементами
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -76,16 +80,26 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         self.button_info.clicked.connect(self.show_info_about_laba)
 
     def change_resistors_store_value(self):
+        """Пересчитывает суммарное
+        сопротивление на магазине
+        сопротивлений. Метод подключается
+        коннектом к каждому dial'y
+        """
         self.resistance_on_store = self.dial_1.value() * 10000 + self.dial_2.value() * 1000 + \
                                    self.dial_3.value() * 100 + self.dial_4.value() * 10 + \
                                    self.dial_5.value() * 1 + self.dial_6.value() * 0.1
 
-        self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(self.resistance_on_store))
+        self.resistors_store.setText('CРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ РІ РјР°РіР°Р·РёРЅРµ СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёР№: {}'.format(self.resistance_on_store))
 
         if self.power_supply:
             self.resistance_calculation()
 
     def resistance_calculation(self):
+        """Считает и устанавливает текущее
+        сопротивление в зависимости от
+        выбранного типа подключения и
+        выбранных резисторов
+        """
         single = self.single.isChecked()
         parallel = self.parallel.isChecked()
         serial = self.serial.isChecked()
@@ -97,7 +111,7 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         value_resistors = 0
         #
         if single or serial or parallel:
-            # пока так...
+            # РїРѕРєР° С‚Р°Рє...
             if single:
                 if self.check_only_one_checkbox_true():
                     for resistor in resistors_used:
@@ -131,11 +145,21 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         self.galvanometer.update_svg_galvanometer(float("{:.2f}".format(self.resistance_on_store / 4 - value_resistors)))
 
     def reset(self):
+        """Сбрасывает все dial'ы на позицию 0. тем
+        самым обнуляя сопротивление в мазазине
+        сопротивлений
+        """
         for dial in [self.dial_1, self.dial_2, self.dial_3,
                      self.dial_4, self.dial_5, self.dial_6]:
             dial.setValue(0)
 
     def change_map_resistors(self):
+        """Меняет картинку label_resistors в
+        зависимости от выбранного типа
+        подключения и выбранных резисторов тем
+        самым отрисовывая вид текущего
+        подключения
+        """
         single = self.single.isChecked()
         parallel = self.parallel.isChecked()
         serial = self.serial.isChecked()
@@ -175,6 +199,12 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         self.change_resistors_store_value()
 
     def check_only_one_checkbox_true(self):
+        """Проверяет подключено ли более 1
+        резистора Если только 1 резистор
+        включён,то возвращает true, в противном
+        случае false
+        """
+
         sum = 0
         for check_status in [self.check_r1, self.check_r2, self.check_r3]:
             sum += int(check_status.isChecked())
@@ -183,10 +213,17 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         return False
 
     def show_info_about_laba(self):
+        """Показывает окно с документацией по
+        выполнению л.р.
+        """
         self.info_laba_11.show()
 
-    # для лейблов
+    # РґР»СЏ Р»РµР№Р±Р»РѕРІ
     def eventFilter(self, obj, e):
+        """
+        Нужен для кликабельности лейблов
+        obj: :param e:
+        """
         if e.type() == 2:
             if obj == self.label_power_supply:
                 self.power_supply = not self.power_supply
@@ -199,6 +236,9 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
 
 
 class Info_laba(QWidget, info_laba.Ui_info_laba_11):
+    """Форма с документацией по выполнению
+    л.р.
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)

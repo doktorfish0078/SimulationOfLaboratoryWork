@@ -8,6 +8,7 @@ from py_code_labs import laba_2, laba_11, laba_14, laba_15
 
 
 class Start_window(QMainWindow, start_window.Ui_start_window):
+    """Класс стартового окна"""
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -25,18 +26,22 @@ class Start_window(QMainWindow, start_window.Ui_start_window):
         self.button_laba15.clicked.connect(self.start_laba_15)
 
     def start_laba_2(self):
+        """Открывает форму 2ой лабы"""
         self.laba_2.show()
         # window.hide()
 
     def start_laba_11(self):
+        """Открывает форму 11ой лабы"""
         self.laba_11.show()
         # window.hide()
 
     def start_laba_14(self):
+        """Открывает форму 14ой лабы"""
         self.laba_14.show()
         # window.hide()
 
     def start_laba_15(self):
+        """Открывает форму 15ой лабы"""
         self.laba_15.show()
         # window.hide()
 

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5 import QtWidgets
@@ -9,6 +10,9 @@ from converted_forms_to_py import info_laba
 from svg_widgets.svg_widget_galvanometer import svg_widget_galvanometer
 
 class Laba2(QMainWindow, laba2.Ui_Laba2):
+    """Класс лабы 2, инициализирует форму и
+        заполняет её элементами
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -29,7 +33,7 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
         self.map_gc = QPixmap("..\\images\\laba_2\\Gc.png")
         self.map_g = QPixmap("..\\images\\laba_2\\G.png")
 
-        # для кликабельности лейблов
+        # Для кликабельности лейблов
         self.label_battery1.installEventFilter(self)
         self.label_battery2.installEventFilter(self)
         self.slot_battery1.installEventFilter(self)
@@ -55,6 +59,11 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
         self.button_info.clicked.connect(self.show_info_about_laba)
 
     def change_picture_key(self):
+        """Коннектится к key_slider, при изменении
+        его значения показывает в label_key другую
+        картинку,соответствующую текущему
+        положению ключа
+        """
         if self.key_slider.value() == 0:
             self.label_key.setPixmap(self.map_left_pos_key)
         elif self.key_slider.value() == 1:
@@ -64,32 +73,42 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
         self.change_value_galvanometer()
 
     def change_value_galvanometer(self):
-        value_reostat = self.Reostat.value() / 10  # значение реостата в сантиметрах,от 0 до 24 см с шагом в 0.1 см
+        """Коннектится к Reostat'у, при изменении
+        его значение, рассчитывает нужное
+        показание гальванометра и обновляет
+        изображение гальванометра
+        """
+        value_reostat = self.Reostat.value() / 10  # Р·РЅР°С‡РµРЅРёРµ СЂРµРѕСЃС‚Р°С‚Р° РІ СЃР°РЅС‚РёРјРµС‚СЂР°С…,РѕС‚ 0 РґРѕ 24 СЃРј СЃ С€Р°РіРѕРј РІ 0.1 СЃРј
 
-        if self.key_slider.value() == 0:  # левая позиция ключа
+        if self.key_slider.value() == 0:  # Р»РµРІР°СЏ РїРѕР·РёС†РёСЏ РєР»СЋС‡Р°
             if value_reostat < 14.5:
                 self.galvanometer.update_svg_galvanometer(-(14.5 / 0.152 - value_reostat / 0.152))
             else:
                 self.galvanometer.update_svg_galvanometer(value_reostat / 0.152 - 14.5 / 0.152)
 
-        elif self.key_slider.value() == 1:  # центральная позиция ключа(разомкнут)
+        elif self.key_slider.value() == 1:  # С†РµРЅС‚СЂР°Р»СЊРЅР°СЏ РїРѕР·РёС†РёСЏ РєР»СЋС‡Р°(СЂР°Р·РѕРјРєРЅСѓС‚)
             self.galvanometer.update_svg_galvanometer(0)
 
         self.label_info.setText("")
 
-        if self.key_slider.value() == 2:  # правая позиция ключа
+        if self.key_slider.value() == 2:  # РїСЂР°РІР°СЏ РїРѕР·РёС†РёСЏ РєР»СЋС‡Р°
             if self.check_battery1.isChecked() or self.check_battery2.isChecked():
                 if value_reostat < 21.5:
                     self.galvanometer.update_svg_galvanometer(-(21.5 / 0.165 - value_reostat / 0.165))
                 else:
                     self.galvanometer.update_svg_galvanometer(value_reostat / 0.165 - 21.5 / 0.165)
             else:
-                self.label_info.setText("Ни одна из батареек не установлена")
+                self.label_info.setText("РќРё РѕРґРЅР° РёР· Р±Р°С‚Р°СЂРµРµРє РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅР°")
                 self.galvanometer.update_svg_galvanometer(0)
 
     def change_slot_battery(self):
+        """Меняет положение батарейки на
+        противоположное А так же отрисовывает
+        положение батарейки(в слоте она или
+        нет)
+        """
         if not (self.check_battery1.isChecked() and self.check_battery2.isChecked()):
-            # проверка первого слота
+            # РїСЂРѕРІРµСЂРєР° РїРµСЂРІРѕРіРѕ СЃР»РѕС‚Р°
             if self.check_battery1.isChecked():
                 self.label_battery1.hide()
                 self.slot_battery1.setPixmap(self.map_full_slot_battery)
@@ -97,7 +116,7 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
                 self.slot_battery1.setPixmap(self.map_empty_slot_battery)
                 self.label_battery1.show()
 
-            # проверка второго слота
+            # РїСЂРѕРІРµСЂРєР° РІС‚РѕСЂРѕРіРѕ СЃР»РѕС‚Р°
             if self.check_battery2.isChecked():
                 self.slot_battery2.setPixmap(self.map_full_slot_battery)
                 self.label_battery2.hide()
@@ -113,8 +132,14 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
             self.check_battery2.setChecked(False)
             self.change_slot_battery()
 
-    # Для кликабельности label
+    # Р”Р»СЏ РєР»РёРєР°Р±РµР»СЊРЅРѕСЃС‚Рё label
     def eventFilter(self, obj, e):
+        """
+        Для кликабельности лейблов
+        Args:
+            obj:
+            e:
+        """
         if e.type() == 2:
             if obj == self.label_battery1:
                 self.check_battery1.setChecked(True)
@@ -133,10 +158,15 @@ class Laba2(QMainWindow, laba2.Ui_Laba2):
         return super(QMainWindow, self).eventFilter(obj, e)
 
     def show_info_about_laba(self):
+        """Показывает окно с документацией по
+        выполнению л.р.
+        """
         self.info_laba_2.show()
 
 
 class Info_laba(QWidget, info_laba.Ui_info_laba_11):
+    """Форма с документацией по выполнению л.р.
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)

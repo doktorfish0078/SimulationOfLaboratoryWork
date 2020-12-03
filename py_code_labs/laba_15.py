@@ -10,6 +10,7 @@ from svg_widgets.svg_widget_ammeter import svg_widget_ammeter
 from svg_widgets.svg_widget_milli_voltmeter import svg_widget_milli_voltmeter
 
 class Laba15(QMainWindow, laba15.Ui_Laba15):
+    """ Класс лабы 11, инициализирует форму и заполняет её элементами """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -53,10 +54,13 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
         self.button_info.clicked.connect(self.show_info_about_laba)
 
     def update_ammeter(self):
+        """ Коннектится к slider_voltage и при изменении значения
+         обновняет value в поле класса voltage_regulator и обновляет картинку амперметра """
         self.voltage_regulator = self.slider_voltage.value()
         self.ammeter.update_svg_ammeter(self.voltage_regulator / self.total_resistance)
 
     def measure_capacitor(self):
+        """ Изменяет напряжение конденсатора, если включён милливольтметр """
         if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
             self.milli_voltmeter.update_angle_svg_milli_voltmeter(float("{:.1f}".format(ammeter_value * self.resistance_c)))
@@ -64,6 +68,7 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
             self.milli_voltmeter.update_angle_svg_milli_voltmeter(0)
 
     def measure_coil(self):
+        """ Изменяет напряжение на катушке, если включён милливольтметр """
         if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
             self.milli_voltmeter.update_angle_svg_milli_voltmeter(float("{:.1f}".format(ammeter_value * self.resistance_kat)))
@@ -71,6 +76,7 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
             self.milli_voltmeter.update_angle_svg_milli_voltmeter(0)
 
     def measure_resistor(self):
+        """ Изменяет напряжение на резисторе, если включён милливольтметр """
         if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ammeter.value()))
             self.milli_voltmeter.update_angle_svg_milli_voltmeter(float("{:.1f}".format(ammeter_value * self.resistance_r)))
@@ -79,6 +85,12 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
 
     # Для кликабельности label
     def eventFilter(self, obj, e):
+        """
+        Нужен для кликабельности лейблов
+        :param obj: 
+        :param e: 
+
+        """
         if e.type() == 2:
             if obj == self.label_power:
                 self.milli_voltmeter.change_power_svg()
@@ -86,9 +98,11 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
         return super(QMainWindow, self).eventFilter(obj, e)
 
     def show_info_about_laba(self):
+        """ Показывает окно с документацией по выполнению л.р. """
         self.info_laba_15.show()
 
 class Info_laba(QWidget, info_laba.Ui_info_laba_11):
+    """ Форма с документацией по выполнению л.р. """
     def __init__(self):
         super().__init__()
         self.setupUi(self)

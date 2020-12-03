@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 from math import sqrt
 
@@ -12,6 +13,9 @@ from svg_widgets import svg_widget_ammeter
 
 
 class Info_laba(QWidget, info_laba.Ui_info_laba_11):
+    """Форма с документацией по выполнению
+    л.р.
+    """
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -21,6 +25,9 @@ class Info_laba(QWidget, info_laba.Ui_info_laba_11):
 
 
 class Laba14(QMainWindow, laba14.Ui_Laba14):
+    """Класс лабы 14, инициализирует форму и
+    заполняет её элементами
+    """
     # global const
     amperage = 0.0
     stok_x = 0
@@ -57,14 +64,28 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         self.button_info.clicked.connect(self.show_info_about_laba)
 
     def show_info_about_laba(self):
+        """Показывает окно с документацией по
+        выполнению л.р.
+        """
         self.info_laba_14.show()
 
     def set_amperage(self):
+        """Коннектится к amperDial, когда изменяется
+        значение пересчитывает ампераж и
+        передаёт его амперметру,чтобы тот
+        обновил показания
+        """
         # print(float(self.amperDial.value())/10)
         self.amperage = self.amperDial.value() / 10
         self.amperOut.update_svg_ammeter(self.amperage)
 
     def set_induction(self):
+        """Коннектится к amperDial и slider_stock, когда
+        изменяется значение одного из них,то
+        Вычисляет индукцию магнитного поля
+        соленоида(штока) в соответствии с
+        формулой
+        """
         # constants
         shtk_dist = (float(self.slider_stock.value())/2.0);
         sl = 10 ** (-2) * shtk_dist
