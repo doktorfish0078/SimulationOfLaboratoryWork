@@ -89,7 +89,7 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
                                    self.dial_3.value() * 100 + self.dial_4.value() * 10 + \
                                    self.dial_5.value() * 1 + self.dial_6.value() * 0.1
 
-        self.resistors_store.setText('CРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ РІ РјР°РіР°Р·РёРЅРµ СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёР№: {}'.format(self.resistance_on_store))
+        self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(self.resistance_on_store))
 
         if self.power_supply:
             self.resistance_calculation()

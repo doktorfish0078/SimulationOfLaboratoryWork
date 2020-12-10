@@ -12,14 +12,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>0</width>
-    <height>0</height>
+    <width>1207</width>
+    <height>904</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>11111</width>
-    <height>11111</height>
+    <width>1207</width>
+    <height>904</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -43,9 +43,9 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>768</y>
-      <width>141</width>
+      <x>524</x>
+      <y>774</y>
+      <width>169</width>
       <height>63</height>
      </rect>
     </property>
@@ -73,6 +73,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="measure_c_button">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Измерить напряжение</string>
        </property>
@@ -116,65 +122,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="measure_3_button">
-       <property name="text">
-        <string>Измерить напряжение</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_4">
-    <property name="geometry">
-     <rect>
-      <x>242</x>
-      <y>726</y>
-      <width>141</width>
-      <height>103</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_6">
-     <item>
-      <widget class="QLabel" name="label_resistor">
-       <property name="maximumSize">
-        <size>
-         <width>139</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>images/resistor.png</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_7">
        <property name="font">
         <font>
          <family>Comic Sans MS</family>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <pointsize>11</pointsize>
         </font>
        </property>
-       <property name="text">
-        <string>Резистор</string>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="measure_r_button">
        <property name="text">
         <string>Измерить напряжение</string>
        </property>
@@ -282,7 +235,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../images/laba_15/Безымянный-2.png</pixmap>
+     <pixmap>../images/laba_15/regulator_voltage.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -410,10 +363,10 @@
    <widget class="QWidget" name="verticalLayoutWidget_5">
     <property name="geometry">
      <rect>
-      <x>686</x>
+      <x>670</x>
       <y>2</y>
-      <width>483</width>
-      <height>537</height>
+      <width>499</width>
+      <height>575</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3"/>
@@ -434,11 +387,81 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="label_resistor">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>700</y>
+      <width>139</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>139</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/laba_15/resistor.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>732</y>
+      <width>174</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Резистор</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="measure_r_button">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Измерить напряжение</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>label_regulator</zorder>
    <zorder>verticalLayoutWidget</zorder>
    <zorder>verticalLayoutWidget_2</zorder>
    <zorder>verticalLayoutWidget_3</zorder>
-   <zorder>verticalLayoutWidget_4</zorder>
    <zorder>button_info</zorder>
    <zorder>label_10</zorder>
    <zorder>slider_voltage</zorder>
@@ -447,6 +470,8 @@
    <zorder>label_coil</zorder>
    <zorder>verticalLayoutWidget_5</zorder>
    <zorder>label_power</zorder>
+   <zorder>label_resistor</zorder>
+   <zorder>verticalLayoutWidget_4</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -463,7 +488,6 @@
  <tabstops>
   <tabstop>measure_c_button</tabstop>
   <tabstop>measure_3_button</tabstop>
-  <tabstop>measure_r_button</tabstop>
  </tabstops>
  <resources/>
  <connections/>
