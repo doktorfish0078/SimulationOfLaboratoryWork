@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1315</width>
-    <height>854</height>
+    <width>1308</width>
+    <height>709</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1315</width>
-    <height>854</height>
+    <width>1308</width>
+    <height>709</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1315</width>
-    <height>854</height>
+    <width>1308</width>
+    <height>709</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -35,8 +35,8 @@
    <widget class="QSlider" name="slider_stock">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>720</y>
+      <x>404</x>
+      <y>660</y>
       <width>500</width>
       <height>31</height>
      </rect>
@@ -78,10 +78,10 @@
    <widget class="QDial" name="amperDial">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>380</y>
-      <width>131</width>
-      <height>81</height>
+      <x>524</x>
+      <y>282</y>
+      <width>51</width>
+      <height>73</height>
      </rect>
     </property>
     <property name="maximum">
@@ -94,10 +94,10 @@
    <widget class="QLabel" name="shtokValue">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>390</y>
-      <width>121</width>
-      <height>120</height>
+      <x>934</x>
+      <y>320</y>
+      <width>80</width>
+      <height>80</height>
      </rect>
     </property>
     <property name="font">
@@ -109,21 +109,24 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel { border-radius: 60px;
+     <string notr="true">QLabel { border-radius:40px;
         
 	background-color:rgb(101, 100, 89); }</string>
     </property>
     <property name="text">
      <string>   50.0</string>
     </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
    </widget>
    <widget class="QLabel" name="label_solenoid">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>670</y>
+      <x>2</x>
+      <y>494</y>
       <width>703</width>
-      <height>131</height>
+      <height>129</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -142,8 +145,8 @@
    <widget class="QLabel" name="label_stock">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>690</y>
+      <x>172</x>
+      <y>512</y>
       <width>498</width>
       <height>91</height>
      </rect>
@@ -167,10 +170,10 @@
    <widget class="QLabel" name="label_instrumentation">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>50</y>
-      <width>881</width>
-      <height>631</height>
+      <x>0</x>
+      <y>-2</y>
+      <width>733</width>
+      <height>493</height>
      </rect>
     </property>
     <property name="text">
@@ -186,8 +189,8 @@
    <widget class="QLabel" name="label_stock_head">
     <property name="geometry">
      <rect>
-      <x>668</x>
-      <y>700</y>
+      <x>670</x>
+      <y>522</y>
       <width>142</width>
       <height>71</height>
      </rect>
@@ -211,10 +214,10 @@
    <widget class="QLabel" name="label_lupa">
     <property name="geometry">
      <rect>
-      <x>941</x>
-      <y>380</y>
-      <width>251</width>
-      <height>251</height>
+      <x>918</x>
+      <y>314</y>
+      <width>157</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -239,8 +242,8 @@
    <widget class="QLabel" name="label_shtok_value_inf">
     <property name="geometry">
      <rect>
-      <x>910</x>
-      <y>300</y>
+      <x>868</x>
+      <y>250</y>
       <width>301</width>
       <height>31</height>
      </rect>
@@ -257,22 +260,36 @@
    <widget class="QLineEdit" name="mainOut">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>120</y>
-      <width>226</width>
-      <height>71</height>
+      <x>190</x>
+      <y>48</y>
+      <width>201</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>Segoe UI</family>
+      <pointsize>24</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+      <stylestrategy>PreferDefault</stylestrategy>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(80, 113, 223);</string>
+     <string notr="true">color: rgb(255, 0, 4);
+background-color:rgb(54, 54, 54);
+border:2px solid;
+border-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -281,9 +298,9 @@
    <widget class="QLabel" name="label_formula_inf">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>40</y>
-      <width>411</width>
+      <x>838</x>
+      <y>58</y>
+      <width>375</width>
       <height>31</height>
      </rect>
     </property>
@@ -299,10 +316,10 @@
    <widget class="QLabel" name="label_formula">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>100</y>
-      <width>461</width>
-      <height>181</height>
+      <x>850</x>
+      <y>90</y>
+      <width>325</width>
+      <height>115</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -324,10 +341,10 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>286</x>
-      <y>382</y>
-      <width>155</width>
-      <height>153</height>
+      <x>240</x>
+      <y>278</y>
+      <width>139</width>
+      <height>139</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout"/>
@@ -335,8 +352,8 @@
    <widget class="QPushButton" name="button_info">
     <property name="geometry">
      <rect>
-      <x>1260</x>
-      <y>0</y>
+      <x>1266</x>
+      <y>2</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -355,6 +372,27 @@
      </size>
     </property>
    </widget>
+   <widget class="QLabel" name="label_shtok_value_inf_2">
+    <property name="geometry">
+     <rect>
+      <x>352</x>
+      <y>626</y>
+      <width>569</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ползунок управления глубиной погружения штока</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <zorder>label_instrumentation</zorder>
    <zorder>amperDial</zorder>
    <zorder>slider_stock</zorder>
@@ -369,16 +407,7 @@
    <zorder>label_lupa</zorder>
    <zorder>verticalLayoutWidget</zorder>
    <zorder>button_info</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1315</width>
-     <height>21</height>
-    </rect>
-   </property>
+   <zorder>label_shtok_value_inf_2</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

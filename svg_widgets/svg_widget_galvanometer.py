@@ -1,8 +1,3 @@
-import sys
-import time
-
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QGridLayout, QSlider, QWidget
 from PyQt5.QtSvg import QSvgWidget
 
 
@@ -252,7 +247,6 @@ class svg_widget_galvanometer:
             angle = -66
         svg_bytes = bytearray(self.svg_str.format(str(angle)), encoding='utf-8')
         self.svg_widget.renderer().load(svg_bytes)
-
         self.value_angle_now = angle
 
     def value(self):

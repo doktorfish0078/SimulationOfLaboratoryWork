@@ -42,7 +42,7 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
         self.button_info.setIcon(QIcon("..\\images\\laba_15\\info.png"))
 
         #для кликабельности лейблов
-        self.label_power.installEventFilter(self)
+        self.label_milli_voltmeter.installEventFilter(self)
 
         # connects
         self.measure_c_button.clicked.connect(self.measure_capacitor)
@@ -92,7 +92,7 @@ class Laba15(QMainWindow, laba15.Ui_Laba15):
 
         """
         if e.type() == 2:
-            if obj == self.label_power:
+            if obj == self.label_milli_voltmeter:
                 self.milli_voltmeter.change_power_svg()
                 self.power_milli_voltmeter = not self.power_milli_voltmeter
         return super(QMainWindow, self).eventFilter(obj, e)

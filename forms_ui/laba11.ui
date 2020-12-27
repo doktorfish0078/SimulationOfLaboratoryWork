@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1122</width>
-    <height>814</height>
+    <width>1000</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1122</width>
-    <height>814</height>
+    <width>1000</width>
+    <height>700</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1122</width>
-    <height>814</height>
+    <width>1000</width>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -32,10 +32,10 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>756</x>
-      <y>284</y>
+      <x>660</x>
+      <y>254</y>
       <width>181</width>
-      <height>31</height>
+      <height>25</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -57,10 +57,10 @@
    <widget class="QLabel" name="label_resistors_shop">
     <property name="geometry">
      <rect>
-      <x>584</x>
-      <y>322</y>
-      <width>517</width>
-      <height>371</height>
+      <x>528</x>
+      <y>278</y>
+      <width>465</width>
+      <height>325</height>
      </rect>
     </property>
     <property name="text">
@@ -76,9 +76,9 @@
    <widget class="QLabel" name="resistors_store">
     <property name="geometry">
      <rect>
-      <x>598</x>
-      <y>696</y>
-      <width>497</width>
+      <x>528</x>
+      <y>604</y>
+      <width>463</width>
       <height>21</height>
      </rect>
     </property>
@@ -95,9 +95,9 @@
    <widget class="QPushButton" name="resetButton">
     <property name="geometry">
      <rect>
-      <x>742</x>
-      <y>720</y>
-      <width>183</width>
+      <x>664</x>
+      <y>628</y>
+      <width>169</width>
       <height>49</height>
      </rect>
     </property>
@@ -112,8 +112,8 @@
    <widget class="QPushButton" name="button_info">
     <property name="geometry">
      <rect>
-      <x>1080</x>
-      <y>0</y>
+      <x>958</x>
+      <y>2</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -135,8 +135,8 @@
    <widget class="QLabel" name="label_resistors">
     <property name="geometry">
      <rect>
-      <x>46</x>
-      <y>116</y>
+      <x>26</x>
+      <y>44</y>
       <width>201</width>
       <height>153</height>
      </rect>
@@ -154,8 +154,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>252</x>
-      <y>116</y>
+      <x>232</x>
+      <y>44</y>
       <width>293</width>
       <height>34</height>
      </rect>
@@ -187,8 +187,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>252</x>
-      <y>156</y>
+      <x>232</x>
+      <y>84</y>
       <width>279</width>
       <height>89</height>
      </rect>
@@ -241,8 +241,8 @@
    <widget class="QLabel" name="label_power_supply">
     <property name="geometry">
      <rect>
-      <x>48</x>
-      <y>632</y>
+      <x>84</x>
+      <y>496</y>
       <width>331</width>
       <height>111</height>
      </rect>
@@ -260,10 +260,10 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>584</x>
       <y>2</y>
-      <width>363</width>
-      <height>281</height>
+      <width>335</width>
+      <height>251</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout"/>
@@ -271,10 +271,10 @@
    <widget class="QDial" name="dial_1">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>408</y>
-      <width>81</width>
-      <height>87</height>
+      <x>578</x>
+      <y>352</y>
+      <width>75</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="palette">
@@ -372,8 +372,10 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-background-color: rgb(28, 30, 29);</string>
+     <string notr="true">background-color: rgb(28, 30, 29);</string>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
     </property>
     <property name="maximum">
      <number>9</number>
@@ -403,8 +405,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QLabel" name="label_voltage_divider">
     <property name="geometry">
      <rect>
-      <x>76</x>
-      <y>432</y>
+      <x>100</x>
+      <y>292</y>
       <width>295</width>
       <height>111</height>
      </rect>
@@ -422,8 +424,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>64</x>
-      <y>544</y>
+      <x>88</x>
+      <y>404</y>
       <width>315</width>
       <height>29</height>
      </rect>
@@ -447,8 +449,8 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>62</x>
-      <y>574</y>
+      <x>86</x>
+      <y>434</y>
       <width>315</width>
       <height>29</height>
      </rect>
@@ -472,10 +474,10 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_2">
     <property name="geometry">
      <rect>
-      <x>802</x>
-      <y>408</y>
-      <width>81</width>
-      <height>87</height>
+      <x>722</x>
+      <y>352</y>
+      <width>75</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="palette">
@@ -573,8 +575,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-background-color: rgb(28, 30, 29);</string>
+     <string notr="true">background-color: rgb(28, 30, 29);</string>
     </property>
     <property name="maximum">
      <number>9</number>
@@ -604,10 +605,10 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_3">
     <property name="geometry">
      <rect>
-      <x>964</x>
-      <y>408</y>
-      <width>81</width>
-      <height>87</height>
+      <x>868</x>
+      <y>352</y>
+      <width>75</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="palette">
@@ -705,8 +706,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-background-color: rgb(28, 30, 29);</string>
+     <string notr="true">background-color: rgb(28, 30, 29);</string>
     </property>
     <property name="maximum">
      <number>9</number>
@@ -736,10 +736,10 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_4">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>570</y>
-      <width>81</width>
-      <height>87</height>
+      <x>578</x>
+      <y>492</y>
+      <width>75</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="palette">
@@ -837,8 +837,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-background-color: rgb(28, 30, 29);</string>
+     <string notr="true">background-color: rgb(28, 30, 29);</string>
     </property>
     <property name="maximum">
      <number>9</number>
@@ -868,10 +867,10 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_5">
     <property name="geometry">
      <rect>
-      <x>802</x>
-      <y>568</y>
-      <width>81</width>
-      <height>87</height>
+      <x>722</x>
+      <y>492</y>
+      <width>75</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="palette">
@@ -969,8 +968,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-background-color: rgb(28, 30, 29);</string>
+     <string notr="true">background-color: rgb(28, 30, 29);</string>
     </property>
     <property name="maximum">
      <number>9</number>
@@ -1000,10 +998,10 @@ background-color: rgb(28, 30, 29);</string>
    <widget class="QDial" name="dial_6">
     <property name="geometry">
      <rect>
-      <x>962</x>
-      <y>570</y>
-      <width>81</width>
-      <height>87</height>
+      <x>868</x>
+      <y>492</y>
+      <width>75</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="palette">
@@ -1101,8 +1099,7 @@ background-color: rgb(28, 30, 29);</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 0);
-background-color: rgb(28, 30, 29);</string>
+     <string notr="true">background-color: rgb(28, 30, 29);</string>
     </property>
     <property name="maximum">
      <number>9</number>
@@ -1148,16 +1145,6 @@ background-color: rgb(28, 30, 29);</string>
    <zorder>dial_4</zorder>
    <zorder>dial_5</zorder>
    <zorder>dial_6</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1122</width>
-     <height>21</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
