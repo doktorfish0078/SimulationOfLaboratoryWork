@@ -10,29 +10,36 @@ from converted_forms_to_py import info_laba
 
 from svg_widgets.svg_widget_galvanometer import svg_widget_galvanometer
 
-class Laba11(QMainWindow, laba11.Ui_Laba11):
+class Laba11(QMainWindow):
     """Класс лабы 11, инициализирует форму и
     заполняет её элементами
     """
+
     def __init__(self):
         super().__init__()
-        self.setupUi(self)
+        self.ui = laba11.Ui_Laba11()
+        self.ui.setupUi(self)
 
         # constants
         self.info_laba_11 = Info_laba()
 
         self.power_supply = False
 
-        self.galvanometer = svg_widget_galvanometer()
-        self.verticalLayout.addWidget(self.galvanometer.svg_widget)
-
         self.r1_value = 210
         self.r2_value = 405
         self.r3_value = 625
         self.resistance_on_store = 0
 
+        # set widgets
+        self.ui.galvanometer = svg_widget_galvanometer()
+        self.ui.verticalLayout.addWidget(self.ui.galvanometer.svg_widget)
+
         # pixmaps
         self.map_res_default = QPixmap("..\\images\\laba_11\\default_resistors.png")
+
+        self.map_r1 = QPixmap("..\\images\\laba_11\\r1.png")
+        self.map_r2 = QPixmap("..\\images\\laba_11\\r2.png")
+        self.map_r3 = QPixmap("..\\images\\laba_11\\r3.png")
 
         self.map_r1_r2_serial = QPixmap("..\\images\\laba_11\\r1r2serial.png")
         self.map_r1_r3_serial = QPixmap("..\\images\\laba_11\\r1r3serial.png")
@@ -51,33 +58,33 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         self.map_voltage_divider = QPixmap("..\\images\\laba_11\\voltage_divider.png")
 
         # set pixmaps
-        self.label_resistors.setPixmap(self.map_res_default)
-        self.button_info.setIcon(QIcon("..\\images\\laba_11\\info.png"))
-        self.label_resistors_shop.setPixmap(QPixmap("..\\images\\laba_11\\resistor_store.png"))
-        self.label_voltage_divider.setPixmap(self.map_voltage_divider)
+        self.ui.label_resistors.setPixmap(self.map_res_default)
+        self.ui.button_info.setIcon(QIcon("..\\images\\laba_11\\info.png"))
+        self.ui.label_resistors_shop.setPixmap(QPixmap("..\\images\\laba_11\\resistor_store.png"))
+        self.ui.label_voltage_divider.setPixmap(self.map_voltage_divider)
 
         # Для кликабельности лейблов
-        self.label_power_supply.installEventFilter(self)
+        self.ui.label_power_supply.installEventFilter(self)
 
         # connects
-        self.dial_1.valueChanged.connect(self.change_resistors_store_value)
-        self.dial_2.valueChanged.connect(self.change_resistors_store_value)
-        self.dial_3.valueChanged.connect(self.change_resistors_store_value)
-        self.dial_4.valueChanged.connect(self.change_resistors_store_value)
-        self.dial_5.valueChanged.connect(self.change_resistors_store_value)
-        self.dial_6.valueChanged.connect(self.change_resistors_store_value)
+        self.ui.dial_1.valueChanged.connect(self.change_resistors_store_value)
+        self.ui.dial_2.valueChanged.connect(self.change_resistors_store_value)
+        self.ui.dial_3.valueChanged.connect(self.change_resistors_store_value)
+        self.ui.dial_4.valueChanged.connect(self.change_resistors_store_value)
+        self.ui.dial_5.valueChanged.connect(self.change_resistors_store_value)
+        self.ui.dial_6.valueChanged.connect(self.change_resistors_store_value)
 
-        self.label_power_supply.setPixmap(self.map_power_supply_off)
+        self.ui.label_power_supply.setPixmap(self.map_power_supply_off)
 
-        self.single.clicked.connect(self.change_map_resistors)
-        self.serial.clicked.connect(self.change_map_resistors)
-        self.parallel.clicked.connect(self.change_map_resistors)
-        self.check_r1.clicked.connect(self.change_map_resistors)
-        self.check_r2.clicked.connect(self.change_map_resistors)
-        self.check_r3.clicked.connect(self.change_map_resistors)
+        self.ui.single.clicked.connect(self.change_map_resistors)
+        self.ui.serial.clicked.connect(self.change_map_resistors)
+        self.ui.parallel.clicked.connect(self.change_map_resistors)
+        self.ui.check_r1.clicked.connect(self.change_map_resistors)
+        self.ui.check_r2.clicked.connect(self.change_map_resistors)
+        self.ui.check_r3.clicked.connect(self.change_map_resistors)
 
-        self.resetButton.clicked.connect(self.reset)
-        self.button_info.clicked.connect(self.show_info_about_laba)
+        self.ui.resetButton.clicked.connect(self.reset)
+        self.ui.button_info.clicked.connect(self.show_info_about_laba)
 
     def change_resistors_store_value(self):
         """Пересчитывает суммарное
@@ -85,11 +92,11 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         сопротивлений. Метод подключается
         коннектом к каждому dial'y
         """
-        self.resistance_on_store = self.dial_1.value() * 10000 + self.dial_2.value() * 1000 + \
-                                   self.dial_3.value() * 100 + self.dial_4.value() * 10 + \
-                                   self.dial_5.value() * 1 + self.dial_6.value() * 0.1
+        self.resistance_on_store = self.ui.dial_1.value() * 10000 + self.ui.dial_2.value() * 1000 + \
+                                   self.ui.dial_3.value() * 100 + self.ui.dial_4.value() * 10 + \
+                                   self.ui.dial_5.value() * 1 + self.ui.dial_6.value() * 0.1
 
-        self.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(self.resistance_on_store))
+        self.ui.resistors_store.setText('Cопротивление в магазине сопротивлений: {}'.format(self.resistance_on_store))
 
         if self.power_supply:
             self.resistance_calculation()
@@ -100,18 +107,18 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         выбранного типа подключения и
         выбранных резисторов
         """
-        single = self.single.isChecked()
-        parallel = self.parallel.isChecked()
-        serial = self.serial.isChecked()
+        single = self.ui.single.isChecked()
+        parallel = self.ui.parallel.isChecked()
+        serial = self.ui.serial.isChecked()
 
-        resistors_used = [[self.check_r1.isChecked(), self.r1_value],
-                          [self.check_r2.isChecked(), self.r2_value],
-                          [self.check_r3.isChecked(), self.r3_value]]
+        resistors_used = [[self.ui.check_r1.isChecked(), self.r1_value],
+                          [self.ui.check_r2.isChecked(), self.r2_value],
+                          [self.ui.check_r3.isChecked(), self.r3_value]]
 
         value_resistors = 0
         #
         if single or serial or parallel:
-            # РїРѕРєР° С‚Р°Рє...
+            # Пока так
             if single:
                 if self.check_only_one_checkbox_true():
                     for resistor in resistors_used:
@@ -120,9 +127,10 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
                 else:
                     QMessageBox.critical(self, "Ошибка", "Выбрано более одного резистора при одиночном подключении",
                                          QMessageBox.Ok)
-                    self.check_r1.setChecked(False)
-                    self.check_r2.setChecked(False)
-                    self.check_r3.setChecked(False)
+                    self.ui.check_r1.setChecked(False)
+                    self.ui.check_r2.setChecked(False)
+                    self.ui.check_r3.setChecked(False)
+                    self.change_map_resistors()
 
             if serial:
                 for resistor in resistors_used:
@@ -130,7 +138,7 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
                         value_resistors += resistor[1]
 
             if parallel:
-                if self.check_r1.isChecked() or self.check_r2.isChecked() or self.check_r3.isChecked():
+                if self.ui.check_r1.isChecked() or self.ui.check_r2.isChecked() or self.ui.check_r3.isChecked():
                     if not self.check_only_one_checkbox_true():
                         summary_resist = 0
                         for resistor in resistors_used:
@@ -142,15 +150,15 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
                             if resistor[0]:
                                 value_resistors = resistor[1]
 
-        self.galvanometer.update_svg_galvanometer(float("{:.2f}".format(self.resistance_on_store / 4 - value_resistors)))
+        self.ui.galvanometer.update_svg_galvanometer(float("{:.2f}".format(self.resistance_on_store / 4 - value_resistors)))
 
     def reset(self):
         """Сбрасывает все dial'ы на позицию 0. тем
         самым обнуляя сопротивление в мазазине
         сопротивлений
         """
-        for dial in [self.dial_1, self.dial_2, self.dial_3,
-                     self.dial_4, self.dial_5, self.dial_6]:
+        for dial in [self.ui.dial_1, self.ui.dial_2, self.ui.dial_3,
+                     self.ui.dial_4, self.ui.dial_5, self.ui.dial_6]:
             dial.setValue(0)
 
     def change_map_resistors(self):
@@ -160,41 +168,62 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         самым отрисовывая вид текущего
         подключения
         """
-        single = self.single.isChecked()
-        parallel = self.parallel.isChecked()
-        serial = self.serial.isChecked()
+        single = self.ui.single.isChecked()
+        parallel = self.ui.parallel.isChecked()
+        serial = self.ui.serial.isChecked()
 
-        r1 = self.check_r1.isChecked()
-        r2 = self.check_r2.isChecked()
-        r3 = self.check_r3.isChecked()
+        r1 = self.ui.check_r1.isChecked()
+        r2 = self.ui.check_r2.isChecked()
+        r3 = self.ui.check_r3.isChecked()
         if single or serial or parallel:
             if single:
-                self.label_resistors.setPixmap(self.map_res_default)
+                if r1:
+                    self.ui.label_resistors.setPixmap(self.map_r1)
+                elif r2:
+                    self.ui.label_resistors.setPixmap(self.map_r2)
+                elif r3:
+                    self.ui.label_resistors.setPixmap(self.map_r3)
+                else:
+                    self.ui.label_resistors.setPixmap(self.map_res_default)
 
             elif serial:
-                if r1 and r2:
-                    self.label_resistors.setPixmap(self.map_r1_r2_serial)
-                elif r1 and r3:
-                    self.label_resistors.setPixmap(self.map_r1_r3_serial)
-                elif r2 and r3:
-                    self.label_resistors.setPixmap(self.map_r2_r3_serial)
-                else:
-                    self.label_resistors.setPixmap(self.map_res_default)
                 if r1 and r2 and r3:
-                    self.label_resistors.setPixmap(self.map_r1_r2_r3_serial)
-
+                    self.ui.label_resistors.setPixmap(self.map_r1_r2_r3_serial)
+                elif r1 and r2:
+                    self.ui.label_resistors.setPixmap(self.map_r1_r2_serial)
+                elif r1 and r3:
+                    self.ui.label_resistors.setPixmap(self.map_r1_r3_serial)
+                elif r2 and r3:
+                    self.ui.label_resistors.setPixmap(self.map_r2_r3_serial)
+                elif r1:
+                    self.ui.label_resistors.setPixmap(self.map_r1)
+                elif r2:
+                    self.ui.label_resistors.setPixmap(self.map_r2)
+                elif r3:
+                    self.ui.label_resistors.setPixmap(self.map_r3)
+                else:
+                    self.ui.label_resistors.setPixmap(self.map_res_default)
 
             elif parallel:
-                if r1 and r2:
-                    self.label_resistors.setPixmap(self.map_r1_r2_parall)
-                elif r1 and r3:
-                    self.label_resistors.setPixmap(self.map_r1_r3_parall)
-                elif r2 and r3:
-                    self.label_resistors.setPixmap(self.map_r2_r3_parall)
-                else:
-                    self.label_resistors.setPixmap(self.map_res_default)
                 if r1 and r2 and r3:
-                    self.label_resistors.setPixmap(self.map_r1_r2_r3_parall)
+                    self.ui.label_resistors.setPixmap(self.map_r1_r2_r3_parall)
+                elif r1 and r2:
+                    self.ui.label_resistors.setPixmap(self.map_r1_r2_parall)
+                elif r1 and r3:
+                    self.ui.label_resistors.setPixmap(self.map_r1_r3_parall)
+                elif r2 and r3:
+                    self.ui.label_resistors.setPixmap(self.map_r2_r3_parall)
+                elif r1:
+                    self.ui.label_resistors.setPixmap(self.map_r1)
+                elif r2:
+                    self.ui.label_resistors.setPixmap(self.map_r2)
+                elif r3:
+                    self.ui.label_resistors.setPixmap(self.map_r3)
+                else:
+                    self.ui.label_resistors.setPixmap(self.map_res_default)
+
+        else:
+            self.ui.label_resistors.setPixmap(self.map_res_default)
 
         self.change_resistors_store_value()
 
@@ -206,7 +235,7 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         """
 
         sum = 0
-        for check_status in [self.check_r1, self.check_r2, self.check_r3]:
+        for check_status in [self.ui.check_r1, self.ui.check_r2, self.ui.check_r3]:
             sum += int(check_status.isChecked())
         if sum <= 1:
             return True
@@ -225,26 +254,27 @@ class Laba11(QMainWindow, laba11.Ui_Laba11):
         obj: :param e:
         """
         if e.type() == 2:
-            if obj == self.label_power_supply:
+            if obj == self.ui.label_power_supply:
                 self.power_supply = not self.power_supply
                 if self.power_supply:
-                    self.label_power_supply.setPixmap(self.map_power_supply_on)
+                    self.ui.label_power_supply.setPixmap(self.map_power_supply_on)
                 else:
-                    self.label_power_supply.setPixmap(self.map_power_supply_off)
+                    self.ui.label_power_supply.setPixmap(self.map_power_supply_off)
                 self.change_resistors_store_value()
         return super(QMainWindow, self).eventFilter(obj, e)
 
 
-class Info_laba(QWidget, info_laba.Ui_info_laba_11):
+class Info_laba(QWidget):
     """Форма с документацией по выполнению
     л.р.
     """
     def __init__(self):
         super().__init__()
-        self.setupUi(self)
+        self.ui = info_laba.Ui_info_laba_11()
+        self.ui.setupUi(self)
 
         # set pixmaps
-        self.label_info.setPixmap(QPixmap("..\\images\\laba_11\\info_laba_11.jpg"))
+        self.ui.label_info.setPixmap(QPixmap("..\\images\\laba_11\\info_laba_11.jpg"))
 
 
 if __name__ == '__main__':

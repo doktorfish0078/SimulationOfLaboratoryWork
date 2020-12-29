@@ -7,11 +7,12 @@ from converted_forms_to_py import start_window
 from py_code_labs import laba_2, laba_11, laba_14, laba_15
 
 
-class Start_window(QMainWindow, start_window.Ui_start_window):
+class Start_window(QMainWindow):
     """Класс стартового окна"""
     def __init__(self):
         super().__init__()
-        self.setupUi(self)
+        self.ui = start_window.Ui_start_window()
+        self.ui.setupUi(self)
 
         # constants
         self.laba_2 = laba_2.Laba2()
@@ -20,10 +21,10 @@ class Start_window(QMainWindow, start_window.Ui_start_window):
         self.laba_15 = laba_15.Laba15()
 
         # connects
-        self.button_laba2.clicked.connect(self.start_laba_2)
-        self.button_laba11.clicked.connect(self.start_laba_11)
-        self.button_laba14.clicked.connect(self.start_laba_14)
-        self.button_laba15.clicked.connect(self.start_laba_15)
+        self.ui.button_laba2.clicked.connect(self.start_laba_2)
+        self.ui.button_laba11.clicked.connect(self.start_laba_11)
+        self.ui.button_laba14.clicked.connect(self.start_laba_14)
+        self.ui.button_laba15.clicked.connect(self.start_laba_15)
 
     def start_laba_2(self):
         """Открывает форму 2ой лабы"""

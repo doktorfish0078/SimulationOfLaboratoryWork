@@ -9,59 +9,45 @@ from PyQt5.QtWidgets import QMainWindow, QWidget
 from converted_forms_to_py import laba14
 from converted_forms_to_py import info_laba
 
-from svg_widgets import svg_widget_ammeter
+from svg_widgets.svg_widget_ammeter import svg_widget_ammeter
 
 
-class Info_laba(QWidget, info_laba.Ui_info_laba_11):
-    """Форма с документацией по выполнению
-    л.р.
-    """
-    def __init__(self):
-        super().__init__()
-        self.setupUi(self)
-
-        # set pixmaps
-        self.label_info.setPixmap(QPixmap("..\\images\\laba_14\\info_laba_14.jpg"))
-
-
-class Laba14(QMainWindow, laba14.Ui_Laba14):
+class Laba14(QMainWindow):
     """Класс лабы 14, инициализирует форму и
     заполняет её элементами
     """
-    # global const
-    amperage = 0.0
-    stok_x = 0
-    stok_y = 0
-
 
     def __init__(self):
+        super().__init__()
+        self.ui = laba14.Ui_Laba14()
+        self.ui.setupUi(self)
 
         # constants
         self.info_laba_14 = Info_laba()
 
-        super().__init__()
-        self.setupUi(self)
-        # const ini
-        self.stok_x = self.label_stock.geometry().getCoords()[0]
-        self.stok_y = self.label_stock.geometry().getCoords()[1]
+        self.amperage = 0.0
 
-        self.amperOut = svg_widget_ammeter.svg_widget_ammeter()
-        self.verticalLayout.addWidget(self.amperOut.svg_widget)
+        self.cord_x_stock = self.ui.label_stock.geometry().getCoords()[0]
+        self.cord_y_stock = self.ui.label_stock.geometry().getCoords()[1]
+
+        # set widgets
+        self.ui.ammeter = svg_widget_ammeter()
+        self.ui.verticalLayout.addWidget(self.ui.ammeter.svg_widget)
 
         # set pixmaps
-        self.label_instrumentation.setPixmap(QPixmap("..\\images\\laba_14\\pribori.png"))
-        self.label_stock.setPixmap(QPixmap("..\\images\\laba_14\\stock.png"))
-        self.label_solenoid.setPixmap(QPixmap("..\\images\\laba_14\\solenoid.png"))
-        self.label_formula.setPixmap(QPixmap("..\\images\\laba_14\\formula.png"))
-        self.label_lupa.setPixmap(QPixmap("..\\images\\laba_14\\lupa.png"))
-        self.label_stock_head.setPixmap(QPixmap("..\\images\\laba_14\\stock_head.png"))
-        self.button_info.setIcon(QIcon("..\\images\\laba_14\\info.png"))
+        self.ui.label_instrumentation.setPixmap(QPixmap("..\\images\\laba_14\\pribori.png"))
+        self.ui.label_stock.setPixmap(QPixmap("..\\images\\laba_14\\stock.png"))
+        self.ui.label_solenoid.setPixmap(QPixmap("..\\images\\laba_14\\solenoid.png"))
+        self.ui.label_formula.setPixmap(QPixmap("..\\images\\laba_14\\formula.png"))
+        self.ui.label_lupa.setPixmap(QPixmap("..\\images\\laba_14\\lupa.png"))
+        self.ui.label_stock_head.setPixmap(QPixmap("..\\images\\laba_14\\stock_head.png"))
+        self.ui.button_info.setIcon(QIcon("..\\images\\laba_14\\info.png"))
 
         # connects
-        self.amperDial.valueChanged.connect(self.set_amperage)
-        self.amperDial.valueChanged.connect(self.set_induction)
-        self.slider_stock.valueChanged.connect(self.set_induction)
-        self.button_info.clicked.connect(self.show_info_about_laba)
+        self.ui.amperDial.valueChanged.connect(self.set_amperage)
+        self.ui.amperDial.valueChanged.connect(self.set_induction)
+        self.ui.slider_stock.valueChanged.connect(self.set_induction)
+        self.ui.button_info.clicked.connect(self.show_info_about_laba)
 
     def show_info_about_laba(self):
         """Показывает окно с документацией по
@@ -75,9 +61,8 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         передаёт его амперметру,чтобы тот
         обновил показания
         """
-        # print(float(self.amperDial.value())/10)
-        self.amperage = self.amperDial.value() / 10
-        self.amperOut.update_svg_ammeter(self.amperage)
+        self.amperage = self.ui.amperDial.value() / 10
+        self.ui.ammeter.update_svg_ammeter(self.amperage)
 
     def set_induction(self):
         """Коннектится к amperDial и slider_stock, когда
@@ -87,22 +72,19 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         формулой
         """
         # constants
-        shtk_dist = (float(self.slider_stock.value())/2.0);
+        shtk_dist = (float(self.ui.slider_stock.value())/2.0)
         sl = 10 ** (-2) * shtk_dist
-        self.shtokValue.setText('   ' + str(47 - shtk_dist))
+        self.ui.shtokValue.setText('   ' + str(47 - shtk_dist))
 
-        self.label_stock.move(
-            # self.slider_stock.
-            self.stok_x+(self.slider_stock.value()+6)*5-0.12*(self.slider_stock.value()+6),
-            self.stok_y)
+        self.ui.label_stock.move(
+            int(self.cord_x_stock + (self.ui.slider_stock.value() + 6) * 5 - 0.12 * (self.ui.slider_stock.value() + 6)), self.cord_y_stock)
 
-        self.label_stock_head.move(
-            # self.slider_stock.
-            self.label_stock.geometry().getCoords()[2],
-            self.label_stock_head.geometry().getCoords()[1])
+        self.ui.label_stock_head.move(
+            self.ui.label_stock.geometry().getCoords()[2],
+            self.ui.label_stock_head.geometry().getCoords()[1])
 
         if sl < 0:
-            self.mainOut.setText(str("%.4f" % 0))
+            self.ui.mainOut.setText(str("%.4f" % 0))
             return
         mu = 10 ** (-7) * 12.57
         n = 2000
@@ -114,8 +96,21 @@ class Laba14(QMainWindow, laba14.Ui_Laba14):
         # print("%.15f" % (mu * self.amperage * n / 2))
         # print("%.15f" % ((len - sl) / sqrt(r ** 2 + (len - sl) ** 2)))
         # print("%.15f" % (sl / sqrt(r ** 2 + sl ** 2)))
-        self.mainOut.setText("%.4f" % (1000 * (mu * self.amperage * n / 2) *
+        self.ui.mainOut.setText("%.4f" % (1000 * (mu * self.amperage * n / 2) *
                                            ((len - sl) / sqrt(r ** 2 + (len - sl) ** 2) + sl / sqrt(r ** 2 + sl ** 2))))
+
+
+class Info_laba(QWidget):
+    """Форма с документацией по выполнению
+    л.р.
+    """
+    def __init__(self):
+        super().__init__()
+        self.ui = info_laba.Ui_info_laba_11()
+        self.ui.setupUi(self)
+
+        # set pixmaps
+        self.ui.label_info.setPixmap(QPixmap("..\\images\\laba_14\\info_laba_14.jpg"))
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
