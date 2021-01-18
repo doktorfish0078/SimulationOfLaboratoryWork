@@ -171,7 +171,7 @@ class Ui_Laba14(object):
 
     def retranslateUi(self, Laba14):
         _translate = QtCore.QCoreApplication.translate
-        Laba14.setWindowTitle(_translate("Laba14", "MainWindow"))
+        Laba14.setWindowTitle(_translate("Laba14", "Лабораторная работа №14"))
         self.shtokValue.setText(_translate("Laba14", "   50.0"))
         self.label_shtok_value_inf.setText(_translate("Laba14", "Текущая отметка на штоке:"))
         self.label_formula_inf.setText(_translate("Laba14", "Формула поиска индукции соленоида:"))

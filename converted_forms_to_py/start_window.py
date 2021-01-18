@@ -104,7 +104,7 @@ class Ui_start_window(object):
 
     def retranslateUi(self, start_window):
         _translate = QtCore.QCoreApplication.translate
-        start_window.setWindowTitle(_translate("start_window", "MainWindow"))
+        start_window.setWindowTitle(_translate("start_window", "SOLW"))
         self.label.setText(_translate("start_window", "Выберите лабораторную работу, которую хотели бы выполнить"))
         self.button_laba2.setText(_translate("start_window", "Лабораторная №2"))
         self.button_laba11.setText(_translate("start_window", "Лабораторная №11"))

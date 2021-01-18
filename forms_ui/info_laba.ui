@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Инструкция по выполненю</string>
   </property>
   <widget class="QLabel" name="label_info">
    <property name="geometry">
@@ -54,9 +54,6 @@
    </property>
    <property name="text">
     <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>../images/laba_11/info_laba_11.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

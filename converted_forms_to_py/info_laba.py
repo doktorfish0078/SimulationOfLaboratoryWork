@@ -27,7 +27,6 @@ class Ui_info_laba_11(object):
         self.label_info.setMinimumSize(QtCore.QSize(701, 0))
         self.label_info.setMaximumSize(QtCore.QSize(701, 16777215))
         self.label_info.setText("")
-        self.label_info.setPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_11/info_laba_11.jpg"))
         self.label_info.setScaledContents(True)
         self.label_info.setObjectName("label_info")
 
@@ -36,4 +35,4 @@ class Ui_info_laba_11(object):
 
     def retranslateUi(self, info_laba_11):
         _translate = QtCore.QCoreApplication.translate
-        info_laba_11.setWindowTitle(_translate("info_laba_11", "Form"))
+        info_laba_11.setWindowTitle(_translate("info_laba_11", "Инструкция по выполненю"))

@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
@@ -13,6 +13,18 @@ class Start_window(QMainWindow):
         super().__init__()
         self.ui = start_window.Ui_start_window()
         self.ui.setupUi(self)
+
+        # set icon
+        icon = QIcon()
+        icon.addPixmap(QPixmap("../images/icon.png"),
+                       QIcon.Normal, QIcon.Off)
+        self.setWindowIcon(icon)
+
+        # set icon
+        icon = QIcon()
+        icon.addPixmap(QPixmap("../images/icon.png"),
+                       QIcon.Normal, QIcon.Off)
+        self.setWindowIcon(icon)
 
         # constants
         self.laba_2 = laba_2.Laba2()

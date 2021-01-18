@@ -22,6 +22,12 @@ class Laba14(QMainWindow):
         self.ui = laba14.Ui_Laba14()
         self.ui.setupUi(self)
 
+        # set icon
+        icon = QIcon()
+        icon.addPixmap(QPixmap("../images/icon.png"),
+                       QIcon.Normal, QIcon.Off)
+        self.setWindowIcon(icon)
+
         # constants
         self.info_laba_14 = Info_laba()
 
@@ -108,6 +114,12 @@ class Info_laba(QWidget):
         super().__init__()
         self.ui = info_laba.Ui_info_laba_11()
         self.ui.setupUi(self)
+
+        # set icon
+        icon = QIcon()
+        icon.addPixmap(QPixmap("../images/icon.png"),
+                       QIcon.Normal, QIcon.Off)
+        self.setWindowIcon(icon)
 
         # set pixmaps
         self.ui.label_info.setPixmap(QPixmap("..\\images\\laba_14\\info_laba_14.jpg"))

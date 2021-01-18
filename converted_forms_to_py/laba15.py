@@ -221,7 +221,7 @@ class Ui_Laba15(object):
 
     def retranslateUi(self, Laba15):
         _translate = QtCore.QCoreApplication.translate
-        Laba15.setWindowTitle(_translate("Laba15", "MainWindow"))
+        Laba15.setWindowTitle(_translate("Laba15", "Лабораторная работа №15"))
         self.label_3.setText(_translate("Laba15", "Конденсатор"))
         self.measure_c_button.setText(_translate("Laba15", "Измерить напряжение"))
         self.label_5.setText(_translate("Laba15", "Катушка индуктивности"))

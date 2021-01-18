@@ -21,6 +21,9 @@ class Ui_Laba2(object):
         sizePolicy.setHeightForWidth(Laba2.sizePolicy().hasHeightForWidth())
         Laba2.setSizePolicy(sizePolicy)
         Laba2.setMaximumSize(QtCore.QSize(1060, 850))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\../images/icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Laba2.setWindowIcon(icon)
         Laba2.setStyleSheet("background-color: rgb(176,193,208);")
         self.centralwidget = QtWidgets.QWidget(Laba2)
         self.centralwidget.setObjectName("centralwidget")
@@ -233,9 +236,9 @@ class Ui_Laba2(object):
         self.button_info = QtWidgets.QPushButton(self.centralwidget)
         self.button_info.setGeometry(QtCore.QRect(1018, 0, 41, 41))
         self.button_info.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_11/info.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.button_info.setIcon(icon)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("F:\\Projects\\SimulationOfLaboratoryWork\\forms_ui\\../images/laba_11/info.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.button_info.setIcon(icon1)
         self.button_info.setIconSize(QtCore.QSize(32, 32))
         self.button_info.setObjectName("button_info")
         self.label_27 = QtWidgets.QLabel(self.centralwidget)
@@ -267,7 +270,7 @@ class Ui_Laba2(object):
 
     def retranslateUi(self, Laba2):
         _translate = QtCore.QCoreApplication.translate
-        Laba2.setWindowTitle(_translate("Laba2", "MainWindow"))
+        Laba2.setWindowTitle(_translate("Laba2", "Лабораторная работа №2"))
         self.label_6.setText(_translate("Laba2", "0"))
         self.label_5.setText(_translate("Laba2", "1"))
         self.label_4.setText(_translate("Laba2", "2"))

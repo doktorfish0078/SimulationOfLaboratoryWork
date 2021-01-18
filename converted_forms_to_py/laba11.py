@@ -407,7 +407,7 @@ class Ui_Laba11(object):
 
     def retranslateUi(self, Laba11):
         _translate = QtCore.QCoreApplication.translate
-        Laba11.setWindowTitle(_translate("Laba11", "MainWindow"))
+        Laba11.setWindowTitle(_translate("Laba11", "Лабораторная работа №11"))
         self.label_8.setText(_translate("Laba11", "Гальванометр"))
         self.resetButton.setText(_translate("Laba11", "Сбросить\n"
 "сопротивления"))
