@@ -30,6 +30,7 @@ class Laba15(QMainWindow):
         self.resistance_c = 40
         self.resistance_r = 30
         self.resistance_kat = 54
+        self.resistance_exit = 47.5
         self.total_resistance = 55.5
 
         # values
@@ -57,6 +58,7 @@ class Laba15(QMainWindow):
         self.ui.measure_c_button.clicked.connect(self.measure_capacitor)
         self.ui.measure_3_button.clicked.connect(self.measure_coil)
         self.ui.measure_r_button.clicked.connect(self.measure_resistor)
+        self.ui.measure_enter_voltage.clicked.connect(self.measure_enter_voltage)
 
         self.ui.slider_voltage.valueChanged.connect(self.update_ammeter)
 
@@ -67,6 +69,15 @@ class Laba15(QMainWindow):
          обновняет value в поле класса voltage_regulator и обновляет картинку амперметра """
         self.voltage_regulator = self.ui.slider_voltage.value()
         self.ui.ammeter.update_svg_ammeter(self.voltage_regulator / self.total_resistance)
+
+    def measure_enter_voltage(self):
+        """ Изменяет напряжение на выходе(1-1), если включён милливольтметр """
+        if self.power_milli_voltmeter:
+            ammeter_value = float('{:.3f}'.format(self.ui.ammeter.value()))
+            self.ui.milli_voltmeter.update_angle_svg_milli_voltmeter(
+                float("{:.1f}".format(ammeter_value * self.resistance_exit)))
+        else:
+            self.ui.milli_voltmeter.update_angle_svg_milli_voltmeter(0)
 
     def measure_capacitor(self):
         """ Изменяет напряжение конденсатора, если включён милливольтметр """

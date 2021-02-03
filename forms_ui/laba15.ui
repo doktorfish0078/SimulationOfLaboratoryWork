@@ -43,15 +43,27 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>244</x>
-      <y>530</y>
+      <x>196</x>
+      <y>488</y>
       <width>169</width>
-      <height>63</height>
+      <height>89</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QLabel" name="label_3">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>53</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>53</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>Comic Sans MS</family>
@@ -61,13 +73,16 @@
         </font>
        </property>
        <property name="text">
-        <string>Конденсатор</string>
+        <string>Конденсатор (2-2)</string>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -89,10 +104,10 @@
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>532</y>
-      <width>235</width>
-      <height>61</height>
+      <x>378</x>
+      <y>490</y>
+      <width>179</width>
+      <height>89</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -101,6 +116,18 @@
      </property>
      <item>
       <widget class="QLabel" name="label_5">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>53</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>53</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>Comic Sans MS</family>
@@ -110,13 +137,16 @@
         </font>
        </property>
        <property name="text">
-        <string>Катушка индуктивности</string>
+        <string>Катушка индуктивности (3-3)</string>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -247,7 +277,7 @@
       <x>490</x>
       <y>252</y>
       <width>239</width>
-      <height>24</height>
+      <height>28</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -259,7 +289,7 @@
     <property name="maximumSize">
      <size>
       <width>16777215</width>
-      <height>24</height>
+      <height>28</height>
      </size>
     </property>
     <property name="font">
@@ -283,8 +313,8 @@
    <widget class="QLabel" name="label_capacitor">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>382</y>
+      <x>226</x>
+      <y>338</y>
       <width>111</width>
       <height>143</height>
      </rect>
@@ -314,8 +344,8 @@
    <widget class="QLabel" name="label_coil">
     <property name="geometry">
      <rect>
-      <x>492</x>
-      <y>388</y>
+      <x>402</x>
+      <y>340</y>
       <width>177</width>
       <height>141</height>
      </rect>
@@ -374,8 +404,8 @@
    <widget class="QLabel" name="label_resistor">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>484</y>
+      <x>588</x>
+      <y>452</y>
       <width>139</width>
       <height>23</height>
      </rect>
@@ -399,15 +429,27 @@
    <widget class="QWidget" name="verticalLayoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>32</x>
-      <y>528</y>
+      <x>568</x>
+      <y>488</y>
       <width>174</width>
-      <height>65</height>
+      <height>89</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
       <widget class="QLabel" name="label_7">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>53</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>53</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>Comic Sans MS</family>
@@ -417,13 +459,16 @@
         </font>
        </property>
        <property name="text">
-        <string>Резистор</string>
+        <string>Резистор (4-4)</string>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -458,6 +503,55 @@
      <string/>
     </property>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_6">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>488</y>
+      <width>173</width>
+      <height>89</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Гнездо (1-1)</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="measure_enter_voltage">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Измерить напряжение</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>label_regulator</zorder>
    <zorder>verticalLayoutWidget</zorder>
    <zorder>verticalLayoutWidget_2</zorder>
@@ -472,12 +566,12 @@
    <zorder>label_resistor</zorder>
    <zorder>verticalLayoutWidget_4</zorder>
    <zorder>label_milli_voltmeter</zorder>
+   <zorder>verticalLayoutWidget_6</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
   <tabstop>measure_c_button</tabstop>
-  <tabstop>measure_3_button</tabstop>
  </tabstops>
  <resources/>
  <connections/>

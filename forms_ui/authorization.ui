@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>start_window</class>
- <widget class="QMainWindow" name="start_window">
+ <class>authorization_window</class>
+ <widget class="QMainWindow" name="authorization_window">
   <property name="windowModality">
    <enum>Qt::NonModal</enum>
   </property>
@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>560</width>
-    <height>434</height>
+    <height>433</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,7 +20,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>SOLW</string>
+   <string>Авторизация</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(176,193,208);</string>
@@ -96,7 +96,7 @@
      <x>0</x>
      <y>0</y>
      <width>560</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
