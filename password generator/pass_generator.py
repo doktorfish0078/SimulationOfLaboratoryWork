@@ -1,5 +1,5 @@
 import datetime
-
+from tkinter import *
 
 def creat_hash(a, p):
     s = 0
@@ -22,7 +22,7 @@ if __name__ == '__main__':
         x = x*10 + 1
     else:
         x *= 10
-    print(now)
+    # print(now)
 
     # print date in special format
     # print(x)
@@ -59,4 +59,13 @@ if __name__ == '__main__':
     ans = ''
     for item in final:
         ans += item
-    print("Your password: %s" % ans)
+    # print("Your password: %s" % ans)
+
+    root = Tk()
+    root.title("Определитель пароля системы SOLW")
+    text1 = Text(root, height=10, width=50, font='Courier 20', wrap=WORD)
+    text1.pack()
+    text1.insert(1.0, "Дата: " + str(now) + "\nВаш пароль: %s" % ans)
+    root.mainloop()
+
+
