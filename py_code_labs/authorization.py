@@ -94,3 +94,4 @@ if __name__ == '__main__':
     window = Authorization()
     window.show()
     app.exec_()
+
