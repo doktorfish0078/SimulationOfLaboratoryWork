@@ -65,7 +65,10 @@ if __name__ == '__main__':
     root.title("Определитель пароля системы SOLW")
     text1 = Text(root, height=10, width=50, font='Courier 20', wrap=WORD)
     text1.pack()
-    text1.insert(1.0, "Дата: " + str(now) + "\nВаш пароль: %s" % ans)
+    root.clipboard_clear()
+    root.clipboard_append(ans)
+    text1.insert(1.0, "Дата: " + str(now) + "\nВаш пароль: %s\nПароль был скопирован в ваш буфер обмена." % ans)
+
     root.mainloop()
 
 
