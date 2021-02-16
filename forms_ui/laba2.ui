@@ -437,14 +437,23 @@
    <widget class="QLabel" name="label_info">
     <property name="geometry">
      <rect>
-      <x>756</x>
-      <y>654</y>
-      <width>301</width>
-      <height>21</height>
+      <x>0</x>
+      <y>652</y>
+      <width>309</width>
+      <height>27</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Comic Sans MS</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 8pt &quot;Comic Sans MS&quot;;</string>
+     <string notr="true">font: 10pt &quot;Comic Sans MS&quot;;</string>
     </property>
     <property name="text">
      <string/>

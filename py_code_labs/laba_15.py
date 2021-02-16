@@ -27,6 +27,8 @@ class Laba15(QMainWindow):
         # constants
         self.info_laba_15 = Info_laba()
 
+        self.ui.label_info.setText("Не включен источник питания милливольтметра!")
+
         self.resistance_c = 40
         self.resistance_r = 30
         self.resistance_kat = 54
@@ -72,6 +74,9 @@ class Laba15(QMainWindow):
 
     def measure_enter_voltage(self):
         """ Изменяет напряжение на выходе(1-1), если включён милливольтметр """
+
+        self.check_power_milli_voltmeter_for_label_info()
+
         if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ui.ammeter.value()))
             self.ui.milli_voltmeter.update_angle_svg_milli_voltmeter(
@@ -81,6 +86,9 @@ class Laba15(QMainWindow):
 
     def measure_capacitor(self):
         """ Изменяет напряжение конденсатора, если включён милливольтметр """
+
+        self.check_power_milli_voltmeter_for_label_info()
+
         if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ui.ammeter.value()))
             self.ui.milli_voltmeter.update_angle_svg_milli_voltmeter(
@@ -90,6 +98,9 @@ class Laba15(QMainWindow):
 
     def measure_coil(self):
         """ Изменяет напряжение на катушке, если включён милливольтметр """
+
+        self.check_power_milli_voltmeter_for_label_info()
+
         if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ui.ammeter.value()))
             self.ui.milli_voltmeter.update_angle_svg_milli_voltmeter(
@@ -99,6 +110,9 @@ class Laba15(QMainWindow):
 
     def measure_resistor(self):
         """ Изменяет напряжение на резисторе, если включён милливольтметр """
+
+        self.check_power_milli_voltmeter_for_label_info()
+
         if self.power_milli_voltmeter:
             ammeter_value = float('{:.3f}'.format(self.ui.ammeter.value()))
             self.ui.milli_voltmeter.update_angle_svg_milli_voltmeter(
@@ -118,7 +132,14 @@ class Laba15(QMainWindow):
             if obj == self.ui.label_milli_voltmeter:
                 self.ui.milli_voltmeter.change_power_svg()
                 self.power_milli_voltmeter = not self.power_milli_voltmeter
+                self.check_power_milli_voltmeter_for_label_info()
         return super(QMainWindow, self).eventFilter(obj, e)
+
+    def check_power_milli_voltmeter_for_label_info(self):
+        if self.power_milli_voltmeter:
+            self.ui.label_info.setText("")
+        else:
+            self.ui.label_info.setText("Не включен источник питания милливольтметра!")
 
     def show_info_about_laba(self):
         """ Показывает окно с документацией по выполнению л.р. """

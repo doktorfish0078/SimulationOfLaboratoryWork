@@ -31,6 +31,8 @@ class Laba11(QMainWindow):
 
         self.power_supply = False
 
+        self.ui.label_info.setText("Не включен источник питания!")
+
         self.r1_value = 210
         self.r2_value = 405
         self.r3_value = 625
@@ -98,6 +100,8 @@ class Laba11(QMainWindow):
         сопротивлений. Метод подключается
         коннектом к каждому dial'y
         """
+        self.check_power_supply_for_label_info()
+
         self.resistance_on_store = self.ui.dial_1.value() * 10000 + self.ui.dial_2.value() * 1000 + \
                                    self.ui.dial_3.value() * 100 + self.ui.dial_4.value() * 10 + \
                                    self.ui.dial_5.value() * 1 + self.ui.dial_6.value() * 0.1
@@ -174,6 +178,8 @@ class Laba11(QMainWindow):
         самым отрисовывая вид текущего
         подключения
         """
+        self.check_power_supply_for_label_info()
+
         single = self.ui.single.isChecked()
         parallel = self.ui.parallel.isChecked()
         serial = self.ui.serial.isChecked()
@@ -246,6 +252,12 @@ class Laba11(QMainWindow):
         if sum <= 1:
             return True
         return False
+
+    def check_power_supply_for_label_info(self):
+        if self.power_supply:
+            self.ui.label_info.setText("")
+        else:
+            self.ui.label_info.setText("Не включен источник питания!")
 
     def show_info_about_laba(self):
         """Показывает окно с документацией по
