@@ -5,9 +5,11 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QMessageBox, QWidget
 
 from converted_forms_to_py import laba2
-from converted_forms_to_py import info_laba
 
 from svg_widgets.svg_widget_galvanometer import svg_widget_galvanometer
+
+from py_code_labs.info_laba import Info_laba
+
 
 class Laba2(QMainWindow):
     """Класс лабы 2, инициализирует форму и
@@ -65,6 +67,9 @@ class Laba2(QMainWindow):
         self.ui.check_battery2.clicked.connect(self.change_slot_battery)
 
         self.ui.button_info.clicked.connect(self.show_info_about_laba)
+
+        # add info pictures about laba
+        self.info_laba_2.add_picture_in_scroll_area_content("../images/laba_2/info_laba_2.jpg")
 
     def change_picture_key(self):
         """Коннектится к key_slider, при изменении
@@ -170,25 +175,6 @@ class Laba2(QMainWindow):
         выполнению л.р.
         """
         self.info_laba_2.show()
-
-
-class Info_laba(QWidget):
-    """Форма с документацией по выполнению л.р.
-    """
-    def __init__(self):
-        super().__init__()
-        self.ui = info_laba.Ui_info_laba_11()
-        self.ui.setupUi(self)
-
-        # set icon
-        icon = QIcon()
-        icon.addPixmap(QPixmap("../images/icon.png"),
-                       QIcon.Normal, QIcon.Off)
-        self.setWindowIcon(icon)
-
-        # set pixmaps
-        self.ui.label_info.setPixmap(QPixmap("..\\images\\laba_2\\info_laba_2.jpg"))
-
 
 
 if __name__ == '__main__':

@@ -6,9 +6,11 @@ from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtWidgets import QMainWindow, QMessageBox, QWidget
 
 from converted_forms_to_py import laba11
-from converted_forms_to_py import info_laba
 
 from svg_widgets.svg_widget_galvanometer import svg_widget_galvanometer
+
+from py_code_labs.info_laba import Info_laba
+
 
 class Laba11(QMainWindow):
     """Класс лабы 11, инициализирует форму и
@@ -94,6 +96,9 @@ class Laba11(QMainWindow):
         self.ui.resetButton.clicked.connect(self.reset)
         self.ui.button_info.clicked.connect(self.show_info_about_laba)
 
+        # add info pictures about laba
+        self.info_laba_11.add_picture_in_scroll_area_content("../images/laba_11/info_laba_11.jpg")
+
     def change_resistors_store_value(self):
         """Пересчитывает суммарное
         сопротивление на магазине
@@ -126,7 +131,6 @@ class Laba11(QMainWindow):
                           [self.ui.check_r3.isChecked(), self.r3_value]]
 
         value_resistors = 0
-        #
         if single or serial or parallel:
             # Пока так
             if single:
@@ -278,27 +282,11 @@ class Laba11(QMainWindow):
                     self.ui.label_power_supply.setPixmap(self.map_power_supply_on)
                 else:
                     self.ui.label_power_supply.setPixmap(self.map_power_supply_off)
+                    #  Т.к. питания нет, то переводим стрелку гальванометра в положение 0
+                    self.ui.galvanometer.update_svg_galvanometer(0)
+
                 self.change_resistors_store_value()
         return super(QMainWindow, self).eventFilter(obj, e)
-
-
-class Info_laba(QWidget):
-    """Форма с документацией по выполнению
-    л.р.
-    """
-    def __init__(self):
-        super().__init__()
-        self.ui = info_laba.Ui_info_laba_11()
-        self.ui.setupUi(self)
-
-        # set icon
-        icon = QIcon()
-        icon.addPixmap(QPixmap("../images/icon.png"),
-                       QIcon.Normal, QIcon.Off)
-        self.setWindowIcon(icon)
-
-        # set pixmaps
-        self.ui.label_info.setPixmap(QPixmap("..\\images\\laba_11\\info_laba_11.jpg"))
 
 
 if __name__ == '__main__':

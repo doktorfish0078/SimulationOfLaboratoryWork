@@ -4,10 +4,12 @@ from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QWidget
 
-from converted_forms_to_py import laba15, info_laba
+from converted_forms_to_py import laba15
 
 from svg_widgets.svg_widget_ammeter import svg_widget_ammeter
 from svg_widgets.svg_widget_milli_voltmeter import svg_widget_milli_voltmeter
+
+from py_code_labs.info_laba import Info_laba
 
 
 class Laba15(QMainWindow):
@@ -65,6 +67,12 @@ class Laba15(QMainWindow):
         self.ui.slider_voltage.valueChanged.connect(self.update_ammeter)
 
         self.ui.button_info.clicked.connect(self.show_info_about_laba)
+
+        # add info pictures about laba
+        self.info_laba_15.add_picture_in_scroll_area_content("../images/laba_15/info_laba_15_1.jpg")
+        self.info_laba_15.add_picture_in_scroll_area_content("../images/laba_15/info_laba_15_2.jpg")
+        self.info_laba_15.add_picture_in_scroll_area_content("../images/laba_15/info_laba_15_3.jpg")
+        self.info_laba_15.add_picture_in_scroll_area_content("../images/laba_15/info_laba_15_4.jpg")
 
     def update_ammeter(self):
         """ Коннектится к slider_voltage и при изменении значения
@@ -144,24 +152,6 @@ class Laba15(QMainWindow):
     def show_info_about_laba(self):
         """ Показывает окно с документацией по выполнению л.р. """
         self.info_laba_15.show()
-
-
-class Info_laba(QWidget):
-    """ Форма с документацией по выполнению л.р. """
-
-    def __init__(self):
-        super().__init__()
-        self.ui = info_laba.Ui_info_laba_11()
-        self.ui.setupUi(self)
-
-        # set icon
-        icon = QIcon()
-        icon.addPixmap(QPixmap("../images/icon.png"),
-                       QIcon.Normal, QIcon.Off)
-        self.setWindowIcon(icon)
-
-        # set pixmaps
-        self.ui.label_info.setPixmap(QPixmap("..\\images\\laba_15\\info_laba_15_1.jpg"))
 
 
 if __name__ == '__main__':
