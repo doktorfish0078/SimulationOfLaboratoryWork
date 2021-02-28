@@ -4,11 +4,10 @@ from math import sqrt
 
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QPixmap, QIcon
-from PyQt5.QtWidgets import QMainWindow, QWidget
+from PyQt5.QtWidgets import QMainWindow
 
 from converted_forms_to_py import laba14
-from converted_forms_to_py import info_laba
-
+from py_code_labs.info_laba import Info_laba
 from svg_widgets.svg_widget_ammeter import svg_widget_ammeter
 
 
@@ -54,6 +53,10 @@ class Laba14(QMainWindow):
         self.ui.amperDial.valueChanged.connect(self.set_induction)
         self.ui.slider_stock.valueChanged.connect(self.set_induction)
         self.ui.button_info.clicked.connect(self.show_info_about_laba)
+
+        # add info pictures about laba
+        self.info_laba_14.add_picture_in_scroll_area_content("../images/laba_14/info_laba_14_1.jpg")
+        self.info_laba_14.add_picture_in_scroll_area_content("../images/laba_14/info_laba_14_2.jpg")
 
     def show_info_about_laba(self):
         """Показывает окно с документацией по
@@ -105,24 +108,6 @@ class Laba14(QMainWindow):
         self.ui.mainOut.setText("%.4f" % (1000 * (mu * self.amperage * n / 2) *
                                            ((len - sl) / sqrt(r ** 2 + (len - sl) ** 2) + sl / sqrt(r ** 2 + sl ** 2))))
 
-
-class Info_laba(QWidget):
-    """Форма с документацией по выполнению
-    л.р.
-    """
-    def __init__(self):
-        super().__init__()
-        self.ui = info_laba.Ui_info_laba_11()
-        self.ui.setupUi(self)
-
-        # set icon
-        icon = QIcon()
-        icon.addPixmap(QPixmap("../images/icon.png"),
-                       QIcon.Normal, QIcon.Off)
-        self.setWindowIcon(icon)
-
-        # set pixmaps
-        self.ui.label_info.setPixmap(QPixmap("..\\images\\laba_14\\info_laba_14.jpg"))
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
