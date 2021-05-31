@@ -1,0 +1,5 @@
+pyinstaller --clean --onefile --noconsole --icon=log.ico --name="Simulation Of Laboratory Works" py_code_labs\authorization.py
+
+pyinstaller --clean --noconsole --icon=log.ico --name="Simulation Of Laboratory Works" py_code_labs\authorization.py
+
+pyinstaller --clean --onefile --noconsole --name="Password generator" password_generator\pass_generator.py
